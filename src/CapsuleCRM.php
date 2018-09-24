@@ -46,6 +46,14 @@ class CapsuleCRM{
         $config     =   $this->config['settings']['site'];
         return $this->call($config['method'],$config['endpoint']);
     }
+
+    public function show($resource,$id){        
+        $config     =   $this->config['resources'][$resource]['show'];   
+        $data       =   $this->call($config['method'],str_replace('{id}',$id,$config['endpoint']));
+
+        $response   =   json_decode($data->getBody()->getContents(),1);
+        return $response['party'];
+    }
     
     /**
      * Read resources

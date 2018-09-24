@@ -11,7 +11,10 @@ return [
             ],
             'update'    =>  [],
             'delete'    =>  [],
-            'show'      =>  []
+            'show'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'parties/{id}'
+            ]
         ],
         'settings'  =>  [
             'perPage'   =>  100
