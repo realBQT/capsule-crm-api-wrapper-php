@@ -6,9 +6,14 @@ use BlackQuadrant\CapsuleCRM;
 
 class ConnectionTest extends TestCase
 {
-    private $test;
+    private $config;
 
-    public function testApiKeyIsPresent(){        
+    public function setUp(){
+        // Setting config
+        $this->config   =   require \hiqdev\composer\config\Builder::path('api');
+    }
+
+    public function testApiKeyIsPresent(){
         // API_KEY constant is set
         $this->assertTrue(defined('API_KEY'));
         // API_KEY is not null
@@ -17,13 +22,24 @@ class ConnectionTest extends TestCase
         $this->assertNotEmpty(API_KEY);
     }
 
-    public function testConnectionToCapsuleCrm(){
-        $client     =   new CapsuleCRM\CapsuleCRM();
+    /**
+     * @dataProvider expectedConnectionString
+     */
+    public function testConnectionToCapsuleCrm( $expected_connection_string ){
+        $client     =   new CapsuleCRM\CapsuleCRM(API_KEY,$this->config);
         // Test connection with site settings
-        $response   =   $client->set_personal_access_token(API_KEY)->connect();
+        $response   =   $client->connect();
         // Successful Connection
         $this->assertTrue( $response->getStatusCode() === 200 );
-        printf($response->getBody()->getContents());
+        // Check for string response
+        $response   =   $response->getBody()->getContents();
+        $this->assertJsonStringEqualsJsonString( $response, $expected_connection_string );
+    }
+
+    public function expectedConnectionString(){
+        return [
+            ['{"site":{"url":"https://thecleancrew-co-nz.capsulecrm.com","subdomain":"thecleancrew-co-nz","name":"thecleancrew.co.nz"}}']
+        ];
     }
 }
 
