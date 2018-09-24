@@ -50,21 +50,35 @@ class CapsuleCRM{
     /**
      * Read resources
      */
-    public function read($resource){
-
+    public function list($resource,$payload=[]){
+        
+        $payload    =   array_merge($this->config['resources']['settings'], $payload);
+        $config     =   $this->config['resources'][$resource]['list'];
+        
+        return $this->call($config['method'],$config['endpoint'],$payload);
     }
 
     /**
      * API Caller
      */
-    private function call( $method, $api_endpoint, $payload=null ){
-        $client     =   new Client();        
-        // Test connection with site settings
-        $response   =   $client->request(strtoupper($method),$api_endpoint, [
+    private function call( $method, $api_endpoint, $payload=[] ){
+        $client     =   new Client();                
+        $method     =   strtoupper($method);
+        // Payload and other settings
+        $settings   =   [];
+        if( $method === 'GET' ){
+            $settings   =   [
+                'query'     =>  $payload
+            ];
+        }
+
+        $default_settings   =   [
             'headers' => [
-                'Authorization'=>'Bearer '.$this->personal_access_token   
+                'Authorization' =>  'Bearer '.$this->personal_access_token,
+                'Accept'        =>  'application/json'
             ]
-        ]);
+        ];
+        $response   =   $client->request(strtoupper($method),$api_endpoint, array_merge($default_settings, $settings));
         return $response;
     }
 

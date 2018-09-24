@@ -4,13 +4,16 @@ return [
     'resources' =>  [
         'party'     =>  [
             'create'    =>  [],
-            'read'      =>  [
+            'list'      =>  [
                 'method'    =>  'GET',
                 'endpoint'  =>  $root.'parties'
             ],
             'update'    =>  [],
             'delete'    =>  [],
             'show'      =>  []
+        ],
+        'settings'  =>  [
+            'perPage'   =>  100
         ]
     ],
     'settings'  =>  [
