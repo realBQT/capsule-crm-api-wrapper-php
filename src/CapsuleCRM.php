@@ -16,10 +16,16 @@ class CapsuleCRM{
         return $this;
     }
 
+    /**
+     * Check if connection to CapsuleCRM is successful
+     */
     public function connect(){
         return $this->call('GET','site',null);
     }
 
+    /**
+     * API Caller
+     */
     private function call( $method, $api_endpoint, $payload ){
         $client     =   new Client();
         // Test connection with site settings

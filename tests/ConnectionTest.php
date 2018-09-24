@@ -23,6 +23,7 @@ class ConnectionTest extends TestCase
         $response   =   $client->set_personal_access_token(API_KEY)->connect();
         // Successful Connection
         $this->assertTrue( $response->getStatusCode() === 200 );
+        printf($response->getBody()->getContents());
     }
 }
 
