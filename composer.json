@@ -3,7 +3,6 @@
     "description": "A simple to use, standards compliant, exhaustive api wrapper for CapsuleCRM for PHP",
     "type": "library",
     "require": {
-        "overtrue/socialite": "^2.0",
         "phpunit/phpunit": "^7.3",
         "guzzlehttp/guzzle": "^6.3"
     },
@@ -12,5 +11,8 @@
             "name": "Black Quadrant",
             "email": "dev@blackquadrant.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {"BlackQuadrant\\CapsuleCRM\\": "src/"}
+    }
 }
