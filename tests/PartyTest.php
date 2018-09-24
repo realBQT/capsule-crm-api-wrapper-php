@@ -27,18 +27,32 @@ class PartyTest extends TestCase
     /**
      * @dataProvider expectedConnectionString
      */
-    public function testPartyList(){
-        $response   =   $this->client->list('party');
-        // Successful Response
-        $this->assertTrue( $response->getStatusCode() === 200 );
-        // $response   =   $response->getHeaders();
-        $response   =   json_decode($response->getBody()->getContents(),1);        
-        $this->assertArrayHasKey('parties',$response);
+    public function testPartyList($resource){        
+        // Response
+        $response   =   $this->client->list($resource);
+        // Response has records
+        $this->assertTrue( count($response) > 1 );
+        // Resource:Subresource split
+        if (strpos($resource, ':') !== false) {
+            list($resource,$sub_resource) = explode(':',$resource);
+        }
+        else{
+            $sub_resource = false;
+        }
+        // Response has correct records
+        if($sub_resource){
+            foreach($response as $record){
+                $this->assertTrue($record['type'] == $sub_resource);
+            }
+        }
+        
     }
 
     public function expectedConnectionString(){
         return [
-            []
+            ['party'],
+            ['party:person'],
+            ['party:organisation']
         ];
     }
 }

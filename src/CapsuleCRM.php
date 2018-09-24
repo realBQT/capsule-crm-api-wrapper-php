@@ -46,16 +46,48 @@ class CapsuleCRM{
         $config     =   $this->config['settings']['site'];
         return $this->call($config['method'],$config['endpoint']);
     }
-
+    
     /**
      * Read resources
      */
     public function list($resource,$payload=[]){
         
         $payload    =   array_merge($this->config['resources']['settings'], $payload);
+        if (strpos($resource, ':') !== false) {
+            list($resource,$sub_resource) = explode(':',$resource);
+        }
+        else{
+            $sub_resource = false;
+        }
+        
         $config     =   $this->config['resources'][$resource]['list'];
         
-        return $this->call($config['method'],$config['endpoint'],$payload);
+        $continue   =   false;
+        $page       =   1;        
+        $response   =   [];
+        do{
+            $payload['page']    =   $page;
+            $data       =   $this->call($config['method'],$config['endpoint'],$payload);
+            $continue   =   filter_var($data->getHeaders()['X-Pagination-Has-More'][0], FILTER_VALIDATE_BOOLEAN);
+            $records    =   json_decode($data->getBody()->getContents(),1);
+            
+            foreach($records[$this->config['resources'][$resource]['plural']] as $record){
+                // Filter based on sub_resource
+                // Currently used on 
+                if($sub_resource && $record['type'] != $sub_resource){
+                    continue;
+                }
+                
+                $response[]     =   $record;
+            }
+            
+            if($continue){
+                $page++;
+            }
+
+        }while($continue);
+                
+        return $response;
     }
 
     /**
@@ -78,7 +110,8 @@ class CapsuleCRM{
                 'Accept'        =>  'application/json'
             ]
         ];
-        $response   =   $client->request(strtoupper($method),$api_endpoint, array_merge($default_settings, $settings));
+        $all_settings = array_merge($default_settings, $settings);        
+        $response   =   $client->request(strtoupper($method),$api_endpoint, $all_settings);
         return $response;
     }
 

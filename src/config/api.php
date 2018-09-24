@@ -3,10 +3,11 @@ $root   =   'https://api.capsulecrm.com/api/v2/';
 return [
     'resources' =>  [
         'party'     =>  [
+            'plural'    =>  'parties',
             'create'    =>  [],
             'list'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'parties'
+                'endpoint'  =>  $root.'parties/'
             ],
             'update'    =>  [],
             'delete'    =>  [],
