@@ -16,6 +16,20 @@ return [
                 'endpoint'  =>  $root.'parties/{id}'
             ]
         ],
+        'opportunity'   =>  [
+            'plural'    =>  'opportunities',
+            'create'    =>  [],
+            'list'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'opportunities/'
+            ],
+            'update'    =>  [],
+            'delete'    =>  [],
+            'show'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'opportunities/{id}'
+            ]
+        ],
         'settings'  =>  [
             'perPage'   =>  100
         ]

@@ -52,7 +52,7 @@ class CapsuleCRM{
         $data       =   $this->call($config['method'],str_replace('{id}',$id,$config['endpoint']));
 
         $response   =   json_decode($data->getBody()->getContents(),1);
-        return $response['party'];
+        return $response[$resource];
     }
     
     /**
