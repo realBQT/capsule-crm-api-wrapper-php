@@ -2,6 +2,20 @@
 $root   =   'https://api.capsulecrm.com/api/v2/';
 return [
     'resources' =>  [
+        'people'    =>  [
+            'plural'    =>  'parties',
+            'create'    =>  [],
+            'list'      =>  [
+                'method'    =>  'POST',
+                'endpoint'  =>  $root.'parties/filters/results'
+            ],
+            'update'    =>  [],
+            'delete'    =>  [],
+            'show'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'parties/{id}'
+            ]
+        ],
         'party'     =>  [
             'plural'    =>  'parties',
             'create'    =>  [],
@@ -42,6 +56,20 @@ return [
             'show'      =>  [
                 'method'    =>  'GET',
                 'endpoint'  =>  $root.'kases/{id}'
+            ]
+        ],
+        'task'      =>  [
+            'plural'    =>  'tasks',
+            'create'    =>  [],
+            'list'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'tasks/'
+            ],
+            'update'    =>  [],
+            'delete'    =>  [],
+            'show'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'tasks/{id}'
             ]
         ],
         'settings'  =>  [

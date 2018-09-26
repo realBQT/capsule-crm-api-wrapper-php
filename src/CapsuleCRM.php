@@ -107,10 +107,7 @@ class CapsuleCRM{
     /**
      * Read resources
      */
-    public function list($resource,$payload=[]){
-        
-        $payload    =   array_merge($this->config['resources']['settings'], $payload);
-            
+    public function list($resource,$payload=[]){          
         // Resource Splitter
         $resource   =   $this->resource_splitter($resource);
         $config     =   $this->config['resources'][$resource['resource']]['list'];
@@ -119,8 +116,8 @@ class CapsuleCRM{
         $page       =   1;        
         $response   =   [];
         do{
-            $payload['page']    =   $page;
-            $data       =   $this->call($config['method'],$config['endpoint'],$payload);
+            // fwrite(STDERR, print_r("Page: ".$page."\n", TRUE));
+            $data       =   $this->call($config['method'],$config['endpoint'].'?page='.$page, $payload);
             $continue   =   filter_var($data->getHeaders()['X-Pagination-Has-More'][0], FILTER_VALIDATE_BOOLEAN);
             $records    =   json_decode($data->getBody()->getContents(),1);
             
@@ -140,30 +137,52 @@ class CapsuleCRM{
         return $response;
     }
 
+
+
     /**
      * API Caller
      */
     private function call( $method, $api_endpoint, $payload=[] ){
         $client     =   new Client();                
         $method     =   strtoupper($method);
+        // Query params from api_endpoint
+        $query_from_endpoint    =   [];
+        if (strpos($api_endpoint, '?') !== false) {
+            list($api_endpoint,$q) = explode('?',$api_endpoint);
+            // Parsing query
+            parse_str($q, $query_from_endpoint);
+        }
         // Payload and other settings
         $settings   =   [];
         if( $method === 'GET' ){
             $settings   =   [
-                'query'     =>  $payload
+                'query'     =>  array_merge($this->config['resources']['settings'], $payload, $query_from_endpoint)
             ];
         }
+        else if( $method === 'POST' ){
+            $settings   =   [
+                'body'      =>  json_encode($payload),
+                'query'     =>  array_merge($this->config['resources']['settings'], $query_from_endpoint)
+            ];
+        }
+
+        // var_dump($settings);die();
 
         $default_settings   =   [
             'headers' => [
                 'Authorization' =>  'Bearer '.$this->personal_access_token,
-                'Accept'        =>  'application/json'
+                'Accept'        =>  'application/json',
+                'Content-Type'  =>  'application/json'
             ]
         ];
-        $all_settings = array_merge($default_settings, $settings);        
+        $all_settings = array_merge($default_settings, $settings);   
+        // fwrite(STDERR, print_r($api_endpoint."\n", TRUE));
+        // fwrite(STDERR, print_r(json_encode($all_settings)."\n", TRUE));
         $response   =   $client->request(strtoupper($method),$api_endpoint, $all_settings);
         return $response;
     }
+
+
 
     /**
      * Personal Access Token :: GET
