@@ -16,6 +16,20 @@ return [
                 'endpoint'  =>  $root.'parties/{id}'
             ]
         ],
+        'organisation'    =>  [
+            'plural'    =>  'parties',
+            'create'    =>  [],
+            'list'      =>  [
+                'method'    =>  'POST',
+                'endpoint'  =>  $root.'parties/filters/results'
+            ],
+            'update'    =>  [],
+            'delete'    =>  [],
+            'show'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'parties/{id}'
+            ]
+        ],
         'party'     =>  [
             'plural'    =>  'parties',
             'create'    =>  [],
