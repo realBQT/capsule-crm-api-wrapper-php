@@ -27,19 +27,19 @@ class UnitTest extends TestCase
     /**
      * @dataProvider payload
      */
-    public function testPayloadSplitter($payload, $expected_op){
-        $op     =   $this->class->payload_splitter($payload);
+    public function testResourceSplitter($payload, $expected_op){
+        $op     =   $this->class->resource_splitter($payload);
         $this->assertSame($op, $expected_op);
     }
 
     public function payload(){
         return [
             // Resource only
-            ['payload' => 'party', 'expected_op'=>['resource'=>'party', 'subresource'=>'', 'q'=>'']],
+            ['payload' => 'party', 'expected_op'=>['resource'=>'party', 'q'=>['type'=>'']]],
             // Resource & Sub Resource
-            ['payload' => 'party:person', 'expected_op'=>['resource'=>'party', 'subresource'=>'person', 'q'=>'']],
+            ['payload' => 'party:person', 'expected_op'=>['resource'=>'party', 'q'=>['type'=>'person']]],
             // Resource, Sub Resource & one Query
-            ['payload' => 'party:person?id=140356573', 'expected_op'=>['resource'=>'party', 'subresource'=>'person', 'q'=>['id'=>'140356573']]]
+            ['payload' => 'party:person?id=140356573', 'expected_op'=>['resource'=>'party', 'q'=>['id'=>'140356573', 'type'=>'person']]]
             // Resource, Sub Resource & multiple Query
         ];
     }

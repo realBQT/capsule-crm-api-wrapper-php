@@ -55,12 +55,15 @@ class CapsuleCRM{
         return $response[$resource];
     }
 
-    public function payload_splitter($payload){
+    /**
+     * Split resource:subresource?query=..
+     */
+    public function resource_splitter($payload){
         // Splitting to resource, subresource, q
         $response   =   [];
         $response['resource']       =   '';
-        $response['subresource']    =   '';
-        $response['q']              =   '';
+        $response['q']              =   [];
+        $response['q']['type']      =   '';
         
         if(!empty($payload)){
             // 1. Isolate q
@@ -74,13 +77,26 @@ class CapsuleCRM{
 
             // 2. Isolate resource, subresource
             if (strpos($payload, ':') !== false) {
-                list($response['resource'],$response['subresource']) = explode(':',$payload);
+                list($response['resource'],$response['q']['type']) = explode(':',$payload);
             }
             else{
                 $response['resource']   =   $payload;
             }
         }
         return $response;
+    }
+
+    public function filter($response, $filter){
+        // Filter
+        if(!empty($filter)){
+            foreach($filter as $key=>$value){
+                if(!isset($record[$key]) || ($record['key'] != $value)){
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
     
     /**
@@ -89,15 +105,11 @@ class CapsuleCRM{
     public function list($resource,$payload=[]){
         
         $payload    =   array_merge($this->config['resources']['settings'], $payload);
-        // Separating resource, sub_resource & query
-        if (strpos($resource, ':') !== false) {
-            list($resource,$sub_resource) = explode(':',$resource);
-        }
-        else{
-            $sub_resource = false;
-        }
+            
+        // Resource Splitter
+        $resource   =   $this->resource_splitter($resource);
         
-        $config     =   $this->config['resources'][$resource]['list'];
+        $config     =   $this->config['resources'][$resource['resource']]['list'];
         
         $continue   =   false;
         $page       =   1;        
@@ -108,12 +120,9 @@ class CapsuleCRM{
             $continue   =   filter_var($data->getHeaders()['X-Pagination-Has-More'][0], FILTER_VALIDATE_BOOLEAN);
             $records    =   json_decode($data->getBody()->getContents(),1);
             
-            foreach($records[$this->config['resources'][$resource]['plural']] as $record){
-                // Filter based on sub_resource
-                // Currently used on 
-                if($sub_resource && $record['type'] != $sub_resource){
-                    continue;
-                }
+            // Filter by q
+            foreach($records[$this->config['resources'][$resource['resource']]['plural']] as $record){
+                
                 
                 $response[]     =   $record;
             }

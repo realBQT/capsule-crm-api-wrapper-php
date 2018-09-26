@@ -30,7 +30,7 @@ class CaseTest extends TestCase
     public function testCaseList($resource){    
         // Response
         $response   =   $this->client->list($resource);  
-        var_dump($response);
+        // var_dump($response);
         // Response has records
         $this->assertTrue( count($response) > 1 );
         
