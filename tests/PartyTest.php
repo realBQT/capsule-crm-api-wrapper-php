@@ -35,10 +35,8 @@ class PartyTest extends TestCase
         // Resource Subresource
         $r          =   $this->client->resource_splitter($resource);
         // Response has correct records
-        if(isset($r['q']['type']) && !empty($r['q']['type'])){
-            foreach($response as $key => $record){
-                $this->assertTrue($record['type'] == $r['q']['type'], $key.'->'.$record['type'].'->'.$r['q']['type']);
-            }
+        foreach($response as $record){
+            $this->assertTrue($this->client->filter($record,$r['q']));
         }
         
     }
@@ -50,7 +48,7 @@ class PartyTest extends TestCase
         // Response
         $response   =   $this->client->show('party',$party_id);
         // Check veracity
-        $this->assertTrue($response==json_decode($expected_output, 1));
+        $this->assertTrue($response==json_decode($expected_output, 1), json_encode($response));
     }
 
     public function resource_subresource(){

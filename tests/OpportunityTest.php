@@ -32,7 +32,12 @@ class OpportunityTest extends TestCase
         $response   =   $this->client->list($resource);        
         // Response has records
         $this->assertTrue( count($response) > 1 );
-        
+        // Resource Subresource
+        $r          =   $this->client->resource_splitter($resource);
+        // Response has correct records
+        foreach($response as $record){
+            $this->assertTrue($this->client->filter($record,$r['q']));
+        }
     }
 
     /**

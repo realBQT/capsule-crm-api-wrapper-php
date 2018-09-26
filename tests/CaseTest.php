@@ -31,7 +31,14 @@ class CaseTest extends TestCase
         // Response
         $response   =   $this->client->list($resource);  
         // Response has records
+        fwrite(STDERR, print_r(count($response)." Cases found\n", TRUE));
         $this->assertTrue( count($response) > 1 );
+        // Resource Subresource
+        $r          =   $this->client->resource_splitter($resource);
+        // Response has correct records
+        foreach($response as $record){
+            $this->assertTrue($this->client->filter($record,$r['q']));
+        }
         
     }
 
@@ -40,7 +47,7 @@ class CaseTest extends TestCase
             // All Cases
             ['kase'],
             // Closed Cases
-            ['kase?status=CLOSED']
+            ['kase?status=CLOSED'],
         ];
     }
 }
