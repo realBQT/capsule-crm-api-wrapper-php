@@ -54,6 +54,34 @@ class CapsuleCRM{
         $response   =   json_decode($data->getBody()->getContents(),1);
         return $response[$resource];
     }
+
+    public function payload_splitter($payload){
+        // Splitting to resource, subresource, q
+        $response   =   [];
+        $response['resource']       =   '';
+        $response['subresource']    =   '';
+        $response['q']              =   '';
+        
+        if(!empty($payload)){
+            // 1. Isolate q
+            if (strpos($payload, '?') !== false) {
+                list($payload,$query) = explode('?',$payload);
+            }
+            if(!empty($query)){
+                // Break into smaller parts
+                parse_str($query, $response['q']);
+            }
+
+            // 2. Isolate resource, subresource
+            if (strpos($payload, ':') !== false) {
+                list($response['resource'],$response['subresource']) = explode(':',$payload);
+            }
+            else{
+                $response['resource']   =   $payload;
+            }
+        }
+        return $response;
+    }
     
     /**
      * Read resources
@@ -61,6 +89,7 @@ class CapsuleCRM{
     public function list($resource,$payload=[]){
         
         $payload    =   array_merge($this->config['resources']['settings'], $payload);
+        // Separating resource, sub_resource & query
         if (strpos($resource, ':') !== false) {
             list($resource,$sub_resource) = explode(':',$resource);
         }

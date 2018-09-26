@@ -29,8 +29,7 @@ class OpportunityTest extends TestCase
      */
     public function testOpportunityList($resource){        
         // Response
-        $response   =   $this->client->list($resource);
-        var_dump($response);
+        $response   =   $this->client->list($resource);        
         // Response has records
         $this->assertTrue( count($response) > 1 );
         

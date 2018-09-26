@@ -30,6 +30,20 @@ return [
                 'endpoint'  =>  $root.'opportunities/{id}'
             ]
         ],
+        'kase'      =>  [
+            'plural'    =>  'kases',
+            'create'    =>  [],
+            'list'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'kases/'
+            ],
+            'update'    =>  [],
+            'delete'    =>  [],
+            'show'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'kases/{id}'
+            ]
+        ],
         'settings'  =>  [
             'perPage'   =>  100
         ]
