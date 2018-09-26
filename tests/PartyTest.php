@@ -29,20 +29,15 @@ class PartyTest extends TestCase
      */
     public function testPartyList($resource){        
         // Response
-        $response   =   $this->client->list($resource);
+        $response   =   $this->client->list($resource);        
         // Response has records
         $this->assertTrue( count($response) > 1 );
-        // Resource:Subresource split
-        if (strpos($resource, ':') !== false) {
-            list($resource,$sub_resource) = explode(':',$resource);
-        }
-        else{
-            $sub_resource = false;
-        }
+        // Resource Subresource
+        $r          =   $this->client->resource_splitter($resource);
         // Response has correct records
-        if($sub_resource){
-            foreach($response as $record){
-                $this->assertTrue($record['type'] == $sub_resource);
+        if(isset($r['q']['type']) && !empty($r['q']['type'])){
+            foreach($response as $key => $record){
+                $this->assertTrue($record['type'] == $r['q']['type'], $key.'->'.$record['type'].'->'.$r['q']['type']);
             }
         }
         

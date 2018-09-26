@@ -86,16 +86,20 @@ class CapsuleCRM{
         return $response;
     }
 
-    public function filter($response, $filter){
+    public function filter($record, $filter){
+        // Unsetting Subresource
+        if(empty($filter['type'])){
+            unset($filter['type']);
+        }
         // Filter
         if(!empty($filter)){
             foreach($filter as $key=>$value){
-                if(!isset($record[$key]) || ($record['key'] != $value)){
+                if(!isset($record[$key]) || ($record[$key] != $value)){
                     return false;
                 }
             }
         }
-
+            
         return true;
     }
     
@@ -108,7 +112,6 @@ class CapsuleCRM{
             
         // Resource Splitter
         $resource   =   $this->resource_splitter($resource);
-        
         $config     =   $this->config['resources'][$resource['resource']]['list'];
         
         $continue   =   false;
@@ -121,10 +124,10 @@ class CapsuleCRM{
             $records    =   json_decode($data->getBody()->getContents(),1);
             
             // Filter by q
-            foreach($records[$this->config['resources'][$resource['resource']]['plural']] as $record){
-                
-                
-                $response[]     =   $record;
+            foreach($records[$this->config['resources'][$resource['resource']]['plural']] as $key=>$record){
+                if($this->filter($record, $resource['q'])){                    
+                    $response[]     =   $record;
+                }                
             }
             
             if($continue){
@@ -132,7 +135,7 @@ class CapsuleCRM{
             }
 
         }while($continue);
-                
+        
         return $response;
     }
 
