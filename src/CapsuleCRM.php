@@ -87,6 +87,7 @@ class CapsuleCRM{
     }
 
     public function filter($record, $filter){
+        // TODO nested filtering: owner.id
         // Unsetting Subresource
         if(empty($filter['type'])){
             unset($filter['type']);

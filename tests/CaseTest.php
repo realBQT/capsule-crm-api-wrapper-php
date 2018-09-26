@@ -31,7 +31,7 @@ class CaseTest extends TestCase
         // Response
         $response   =   $this->client->list($resource);  
         // Response has records
-        fwrite(STDERR, print_r(count($response)." Cases found\n", TRUE));
+        // fwrite(STDERR, print_r(count($response)." Cases found\n", TRUE));
         $this->assertTrue( count($response) > 1 );
         // Resource Subresource
         $r          =   $this->client->resource_splitter($resource);
@@ -42,12 +42,29 @@ class CaseTest extends TestCase
         
     }
 
+    /**
+     * @dataProvider case_id
+     */
+    public function testCaseDetails($case_id){
+        // Response
+        $response   =   $this->client->show('kase',$case_id);
+        // Check veracity
+        $this->assertArrayHasKey('status',$response);
+    }
+
     public function resource_subresource(){
         return [
             // All Cases
             ['kase'],
             // Closed Cases
             ['kase?status=CLOSED'],
+        ];
+    }
+
+    public function case_id(){
+        return [
+            ['id'=>'2326212'],
+            ['id'=>'2349921']
         ];
     }
 }
