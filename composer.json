@@ -21,6 +21,9 @@
     "extra": {
         "config-plugin": {
             "api": "src/config/api.php"
+        },
+        "laravel": {
+            "providers": "BlackQuadrant\\CapsuleCRM\\ServiceProvider"
         }
     }
 }
