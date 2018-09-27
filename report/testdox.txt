@@ -1,0 +1,44 @@
+Case
+ [x] Api key is present
+ [x] Case list data set ""
+ [x] Case list data set ""
+ [x] Case details data set ""
+ [x] Case details data set ""
+
+Connection
+ [x] Api key is present
+ [x] Connection to capsule crm data set ""
+
+Opportunity
+ [x] Api key is present
+ [x] Opportunity list data set ""
+ [x] Opportunity details data set ""
+ [x] Opportunity details data set ""
+
+Party
+ [x] Api key is present
+ [x] Party list data set ""
+ [x] Party list data set ""
+ [x] Party list data set ""
+ [x] Party details data set ""
+ [ ] Party details data set ""
+ [x] Organisation list data set ""
+ [x] Organisation list data set ""
+ [x] Person list data set ""
+ [x] Person list data set ""
+
+Task
+ [x] Api key is present
+ [x] Task list data set ""
+ [x] Task list data set ""
+ [x] Task list data set ""
+ [ ] Task list data set ""
+ [x] Case details data set ""
+ [x] Case details data set ""
+
+Unit
+ [x] Api key is present
+ [x] Resource splitter data set ""
+ [x] Resource splitter data set ""
+ [x] Resource splitter data set ""
+

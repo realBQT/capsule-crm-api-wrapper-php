@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Capsule CRM Api Wrapper tests" tests="32" assertions="3857" errors="0" failures="2" skipped="0" time="73.468476">
+    <testsuite name="CaseTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/CaseTest.php" tests="5" assertions="11" errors="0" failures="0" skipped="0" time="3.385523">
+      <testcase name="testApiKeyIsPresent" class="CaseTest" classname="CaseTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/CaseTest.php" line="18" assertions="3" time="0.008558"/>
+      <testsuite name="CaseTest::testCaseList" tests="2" assertions="6" errors="0" failures="0" skipped="0" time="1.908776">
+        <testcase name="testCaseList with data set #0" class="CaseTest" classname="CaseTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/CaseTest.php" line="30" assertions="3" time="1.132402"/>
+        <testcase name="testCaseList with data set #1" class="CaseTest" classname="CaseTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/CaseTest.php" line="30" assertions="3" time="0.776374"/>
+      </testsuite>
+      <testsuite name="CaseTest::testCaseDetails" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="1.468189">
+        <testcase name="testCaseDetails with data set #0" class="CaseTest" classname="CaseTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/CaseTest.php" line="48" assertions="1" time="0.791676"/>
+        <testcase name="testCaseDetails with data set #1" class="CaseTest" classname="CaseTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/CaseTest.php" line="48" assertions="1" time="0.676513"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="ConnectionTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/ConnectionTest.php" tests="2" assertions="7" errors="0" failures="0" skipped="0" time="0.644591">
+      <testcase name="testApiKeyIsPresent" class="ConnectionTest" classname="ConnectionTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/ConnectionTest.php" line="16" assertions="3" time="0.004445"/>
+      <testsuite name="ConnectionTest::testConnectionToCapsuleCrm" tests="1" assertions="4" errors="0" failures="0" skipped="0" time="0.640146">
+        <testcase name="testConnectionToCapsuleCrm with data set #0" class="ConnectionTest" classname="ConnectionTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/ConnectionTest.php" line="28" assertions="4" time="0.640146"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="OpportunityTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/OpportunityTest.php" tests="4" assertions="15" errors="0" failures="0" skipped="0" time="1.895730">
+      <testcase name="testApiKeyIsPresent" class="OpportunityTest" classname="OpportunityTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/OpportunityTest.php" line="18" assertions="3" time="0.004522"/>
+      <testsuite name="OpportunityTest::testOpportunityList" tests="1" assertions="10" errors="0" failures="0" skipped="0" time="0.619619">
+        <testcase name="testOpportunityList with data set #0" class="OpportunityTest" classname="OpportunityTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/OpportunityTest.php" line="30" assertions="10" time="0.619619"/>
+      </testsuite>
+      <testsuite name="OpportunityTest::testOpportunityDetails" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="1.271589">
+        <testcase name="testOpportunityDetails with data set #0" class="OpportunityTest" classname="OpportunityTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/OpportunityTest.php" line="46" assertions="1" time="0.629398"/>
+        <testcase name="testOpportunityDetails with data set #1" class="OpportunityTest" classname="OpportunityTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/OpportunityTest.php" line="46" assertions="1" time="0.642191"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="PartyTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/PartyTest.php" tests="10" assertions="3493" errors="0" failures="1" skipped="0" time="60.090224">
+      <testcase name="testApiKeyIsPresent" class="PartyTest" classname="PartyTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/PartyTest.php" line="18" assertions="3" time="0.006419"/>
+      <testsuite name="PartyTest::testPartyList" tests="3" assertions="2297" errors="0" failures="0" skipped="0" time="43.083701">
+        <testcase name="testPartyList with data set #0" class="PartyTest" classname="PartyTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/PartyTest.php" line="30" assertions="1148" time="15.163946"/>
+        <testcase name="testPartyList with data set #1" class="PartyTest" classname="PartyTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/PartyTest.php" line="30" assertions="180" time="13.612064"/>
+        <testcase name="testPartyList with data set #2" class="PartyTest" classname="PartyTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/PartyTest.php" line="30" assertions="969" time="14.307691"/>
+      </testsuite>
+      <testsuite name="PartyTest::testPartyDetails" tests="2" assertions="2" errors="0" failures="1" skipped="0" time="1.430864">
+        <testcase name="testPartyDetails with data set #0" class="PartyTest" classname="PartyTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/PartyTest.php" line="47" assertions="1" time="0.802251"/>
+        <testcase name="testPartyDetails with data set #1" class="PartyTest" classname="PartyTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/PartyTest.php" line="47" assertions="1" time="0.628613">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">PartyTest::testPartyDetails with data set #1 ('140359963', '{"id":140359963,"owner":null,...s":[]}')
+{"id":140359963,"owner":null,"type":"organisation","about":null,"name":"Impact Alarms Limited","createdAt":"2017-05-16T01:25:18Z","updatedAt":"2018-09-02T23:24:48Z","lastContactedAt":null,"pictureURL":"https:\/\/d365sd3k9yw37.cloudfront.net\/a\/1538038401\/theme\/default\/images\/org_avatar.svg","phoneNumbers":[],"addresses":[],"emailAddresses":[],"websites":[]}
+Failed asserting that false is true.
+
+/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/PartyTest.php:51
+</failure>
+        </testcase>
+      </testsuite>
+      <testsuite name="PartyTest::testOrganisationList" tests="2" assertions="1004" errors="0" failures="0" skipped="0" time="12.605338">
+        <testcase name="testOrganisationList with data set #0" class="PartyTest" classname="PartyTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/PartyTest.php" line="57" assertions="969" time="11.777675"/>
+        <testcase name="testOrganisationList with data set #1" class="PartyTest" classname="PartyTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/PartyTest.php" line="57" assertions="35" time="0.827663"/>
+      </testsuite>
+      <testsuite name="PartyTest::testPersonList" tests="2" assertions="187" errors="0" failures="0" skipped="0" time="2.963901">
+        <testcase name="testPersonList with data set #0" class="PartyTest" classname="PartyTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/PartyTest.php" line="76" assertions="180" time="2.193724"/>
+        <testcase name="testPersonList with data set #1" class="PartyTest" classname="PartyTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/PartyTest.php" line="76" assertions="7" time="0.770177"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="TaskTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/TaskTest.php" tests="7" assertions="325" errors="0" failures="1" skipped="0" time="7.431309">
+      <testcase name="testApiKeyIsPresent" class="TaskTest" classname="TaskTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/TaskTest.php" line="18" assertions="3" time="0.005314"/>
+      <testsuite name="TaskTest::testTaskList" tests="4" assertions="320" errors="0" failures="1" skipped="0" time="5.904437">
+        <testcase name="testTaskList with data set #0" class="TaskTest" classname="TaskTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/TaskTest.php" line="30" assertions="159" time="2.313290"/>
+        <testcase name="testTaskList with data set #1" class="TaskTest" classname="TaskTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/TaskTest.php" line="30" assertions="17" time="0.645934"/>
+        <testcase name="testTaskList with data set #2" class="TaskTest" classname="TaskTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/TaskTest.php" line="30" assertions="143" time="2.307121"/>
+        <testcase name="testTaskList with data set #3" class="TaskTest" classname="TaskTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/TaskTest.php" line="30" assertions="1" time="0.638092">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">TaskTest::testTaskList with data set #3 ('task', array('PENDING'))
+Failed asserting that false is true.
+
+/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/TaskTest.php:35
+</failure>
+        </testcase>
+      </testsuite>
+      <testsuite name="TaskTest::testCaseDetails" tests="2" assertions="2" errors="0" failures="0" skipped="0" time="1.521558">
+        <testcase name="testCaseDetails with data set #0" class="TaskTest" classname="TaskTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/TaskTest.php" line="48" assertions="1" time="0.767012"/>
+        <testcase name="testCaseDetails with data set #1" class="TaskTest" classname="TaskTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/TaskTest.php" line="48" assertions="1" time="0.754546"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" tests="4" assertions="6" errors="0" failures="0" skipped="0" time="0.021099">
+      <testcase name="testApiKeyIsPresent" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="18" assertions="3" time="0.004538"/>
+      <testsuite name="UnitTest::testResourceSplitter" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.016561">
+        <testcase name="testResourceSplitter with data set #0" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="30" assertions="1" time="0.004661"/>
+        <testcase name="testResourceSplitter with data set #1" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="30" assertions="1" time="0.007330"/>
+        <testcase name="testResourceSplitter with data set #2" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="30" assertions="1" time="0.004570"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

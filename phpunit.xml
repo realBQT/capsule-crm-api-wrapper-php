@@ -4,7 +4,7 @@
     backupGlobals="true"
     backupStaticAttributes="false"
     cacheTokens="false"
-    colors="false"
+    colors="true"
     convertErrorsToExceptions="true"
     convertNoticesToExceptions="true"
     convertWarningsToExceptions="true"
@@ -29,6 +29,25 @@
         </testsuite>
     </testsuites>
 
+    <!-- Code Coverage -->
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+            <exclude>
+                <directory>src/config</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-html" target="./report/report" lowUpperBound="35"
+            highLowerBound="70"/>
+        <log type="coverage-clover" target="./report/coverage.xml"/>
+        <log type="coverage-php" target="./report/coverage.serialized"/>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+        <log type="junit" target="./report/logfile.xml"/>
+        <log type="testdox-html" target="./report/testdox.html"/>
+        <log type="testdox-text" target="./report/testdox.txt"/>
+    </logging>
     <!-- Environment Variables -->
     <php>
         <const name="API_KEY" value="89cDjjYk3ogEX0P/NQnPksFxAPYkspNMIhpWVNG0PoiQUriP8AHpCSynyVXVZ7/f" />
