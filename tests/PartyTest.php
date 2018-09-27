@@ -98,6 +98,7 @@ class PartyTest extends TestCase
      */
     public function filter_people(){
         return [
+            // Filter people by type
             [
                 'resource'  =>  'people',
                 'filter'    =>  [
@@ -107,6 +108,26 @@ class PartyTest extends TestCase
                                 'field'         =>  'type',
                                 'operator'      =>  'is',
                                 'value'         =>  'person'
+                            ]
+                        ]
+                    ]
+                ]
+            ],  
+            // Filter people by tag
+            [
+                'resource'  =>  'people',
+                'filter'    =>  [
+                    'filter'    =>  [
+                        'conditions'    =>  [
+                            [
+                                'field'     =>  'type',
+                                'operator'  =>  'is',
+                                'value'     =>  'person'
+                            ],
+                            [
+                                'field'     =>  'tag',
+                                'operator'  =>  'is',
+                                'value'     =>  'Employee'
                             ]
                         ]
                     ]
