@@ -18,7 +18,7 @@ class ServiceProvider extends LaravelServiceProvider
     {
         $this->publishes([
             __DIR__.'config/api.php' => config_path('blackquadrant/capsule_crm.php'),
-        ]);
+        ], 'config');
     }
 
     /**
