@@ -150,6 +150,26 @@ class PartyTest extends TestCase
                         ]
                     ]
                 ]
+            ],
+            // Filter organisations by tag
+            [
+                'resource'  =>  'organisation',
+                'filter'    =>  [
+                    'filter'    =>  [
+                        'conditions'    =>  [
+                            [
+                                'field'         =>  'type',
+                                'operator'      =>  'is',
+                                'value'         =>  'organisation'
+                            ],
+                            [
+                                'field'     =>  'tag',
+                                'operator'  =>  'is',
+                                'value'     =>  'Existing customer'
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ];
     }
