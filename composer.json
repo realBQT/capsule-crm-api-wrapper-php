@@ -23,7 +23,9 @@
             "api": "src/config/api.php"
         },
         "laravel": {
-            "providers": "BlackQuadrant\\CapsuleCRM\\ServiceProvider"
+            "providers": [
+                "BlackQuadrant\\CapsuleCRM\\ServiceProvider"
+            ]
         }
     }
 }
