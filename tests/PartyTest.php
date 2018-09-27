@@ -51,6 +51,88 @@ class PartyTest extends TestCase
         $this->assertTrue($response==json_decode($expected_output, 1), json_encode($response));
     }
 
+    /**
+     * @dataProvider filter_organisation
+     */
+    public function testOrganisationList($resource,$filter){
+        // Response
+        $response   =   $this->client->list($resource,$filter);
+        // var_dump($response);die();
+        // Response has records
+        // fwrite(STDERR, print_r(count($response)." Cases found\n", TRUE));
+        $this->assertTrue( count($response) > 1 );
+        // Resource Subresource
+        $r          =   $this->client->resource_splitter('party:organisation');
+        // Response has correct records
+        foreach($response as $record){
+            $this->assertTrue($this->client->filter($record,$r['q']));
+        }
+        
+    }
+
+    /**
+     * @dataProvider filter_people
+     */
+    public function testPersonList($resource,$filter){
+        // Response
+        $response   =   $this->client->list($resource,$filter);
+        // var_dump($response);die();
+        // Response has records
+        // fwrite(STDERR, print_r(count($response)." Cases found\n", TRUE));
+        $this->assertTrue( count($response) > 1 );
+        // Resource Subresource
+        $r          =   $this->client->resource_splitter('party:person');
+        // Response has correct records
+        foreach($response as $record){
+            $this->assertTrue($this->client->filter($record,$r['q']));
+        }
+        
+    }
+    
+    
+    
+    
+    
+    /**
+     * Data Providers
+     */
+    public function filter_people(){
+        return [
+            [
+                'resource'  =>  'people',
+                'filter'    =>  [
+                    'filter'    =>  [
+                        'conditions'    =>  [
+                            [
+                                'field'         =>  'type',
+                                'operator'      =>  'is',
+                                'value'         =>  'person'
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ];
+    }
+    public function filter_organisation(){
+        return [
+            [
+                'resource'  =>  'organisation',
+                'filter'    =>  [
+                    'filter'    =>  [
+                        'conditions'    =>  [
+                            [
+                                'field'         =>  'type',
+                                'operator'      =>  'is',
+                                'value'         =>  'organisation'
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ];
+    }
+    
     public function resource_subresource(){
         return [
             ['party'],
