@@ -3,6 +3,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 use BlackQuadrant\CapsuleCRM;
+use Adbar\Dot;
 
 class OpportunityTest extends TestCase
 {
@@ -27,17 +28,29 @@ class OpportunityTest extends TestCase
     /**
      * @dataProvider resource_subresource
      */
-    public function testOpportunityList($resource, $filter=[]){        
+    public function testOpportunityList($resource, $filter=[], $e_op){        
         // Response
-        $response   =   $this->client->list($resource, $filter); 
-        echo json_encode($response);die();
-        // Response has records
-        $this->assertTrue( count($response) > 1 );
-        // Resource Subresource
-        $r          =   $this->client->resource_splitter($resource);
-        // Response has correct records
-        foreach($response as $record){
-            $this->assertTrue($this->client->filter($record,$r['q']));
+        $response   =   $this->client->list($resource, $filter);   
+        if(empty($response)){
+            // No results, no error
+            fwrite(STDERR, print_r("\nNo results were found for: ".$resource."->".json_encode($filter)."\n", TRUE));
+            $this->markTestIncomplete('');
+        }
+        else{
+            // Response has records
+            $this->assertTrue( count($response) > 1 );
+            if(count($response))
+            // Resource Subresource
+            $r          =   $this->client->resource_splitter($resource);
+            foreach($response as $record){
+                // Response has Resource Type
+                $this->assertTrue($this->client->filter($record,$r['q']));
+                // Response has e_op
+                $dot    =   dot($record);
+                foreach($e_op as $key=>$value){
+                    $this->assertTrue($dot->get($key)==$value);
+                }
+            }
         }
     }
 
@@ -66,8 +79,65 @@ class OpportunityTest extends TestCase
                             ]
                         ]
                     ]
+                ],
+                'e_op'  =>  [
+                    'milestone.name'    =>  'Won'
                 ]
-            ]
+            ],
+            // Opportunities Lost
+            [
+                'resource'  => 'opportunity',
+                'filter'    =>  [
+                    'filter'    =>  [
+                        'conditions'    =>  [
+                            [
+                                'field'     =>  'milestone',
+                                'operator'  =>  'is',
+                                'value'     =>  'Lost'
+                            ]
+                        ]
+                    ]
+                ],
+                'e_op'  =>  [
+                    'milestone.name'    =>  'Lost'
+                ]
+            ],
+            // Opportunities Prospects
+            [
+                'resource'  => 'opportunity',
+                'filter'    =>  [
+                    'filter'    =>  [
+                        'conditions'    =>  [
+                            [
+                                'field'     =>  'milestone',
+                                'operator'  =>  'is',
+                                'value'     =>  'Prospect'
+                            ]
+                        ]
+                    ]
+                ],
+                'e_op'  =>  [
+                    'milestone.name'    =>  'Prospect'
+                ]
+            ],
+            // Opportunities Proposal
+            [
+                'resource'  => 'opportunity',
+                'filter'    =>  [
+                    'filter'    =>  [
+                        'conditions'    =>  [
+                            [
+                                'field'     =>  'milestone',
+                                'operator'  =>  'is',
+                                'value'     =>  'Proposal'
+                            ]
+                        ]
+                    ]
+                ],
+                'e_op'  =>  [
+                    'milestone.name'    =>  'Proposal'
+                ]
+            ]            
         ];
     }
 

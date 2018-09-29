@@ -1,1 +1,9 @@
 Opportunity
+ [x] Api key is present
+ [x] Opportunity list data set ""
+ [ ] Opportunity list data set ""
+ [ ] Opportunity list data set ""
+ [x] Opportunity list data set ""
+ [x] Opportunity details data set ""
+ [x] Opportunity details data set ""
+
