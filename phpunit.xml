@@ -50,6 +50,6 @@
     </logging>
     <!-- Environment Variables -->
     <php>
-        <const name="API_KEY" value="89cDjjYk3ogEX0P/NQnPksFxAPYkspNMIhpWVNG0PoiQUriP8AHpCSynyVXVZ7/f" />
+        <const name="API_KEY" value="89cDjjYk3ogEX0P/NQnPkpH0vpxeKIZIto7u/LZx1ET0oTQVBkL21yjOB6ddGIob" />
     </php>
 </phpunit>
