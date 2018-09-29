@@ -48,8 +48,8 @@ return [
             'plural'    =>  'opportunities',
             'create'    =>  [],
             'list'      =>  [
-                'method'    =>  'GET',
-                'endpoint'  =>  $root.'opportunities/'
+                'method'    =>  'POST',
+                'endpoint'  =>  $root.'opportunities/filters/results'
             ],
             'update'    =>  [],
             'delete'    =>  [],

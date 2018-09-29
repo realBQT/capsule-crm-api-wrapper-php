@@ -27,9 +27,10 @@ class OpportunityTest extends TestCase
     /**
      * @dataProvider resource_subresource
      */
-    public function testOpportunityList($resource){        
+    public function testOpportunityList($resource, $filter=[]){        
         // Response
-        $response   =   $this->client->list($resource);        
+        $response   =   $this->client->list($resource, $filter); 
+        echo json_encode($response);die();
         // Response has records
         $this->assertTrue( count($response) > 1 );
         // Resource Subresource
@@ -52,7 +53,21 @@ class OpportunityTest extends TestCase
 
     public function resource_subresource(){
         return [
-            ['opportunity']
+            // Opportunities Won
+            [
+                'resource'  => 'opportunity',
+                'filter'    =>  [
+                    'filter'    =>  [
+                        'conditions'    =>  [
+                            [
+                                'field'     =>  'milestone',
+                                'operator'  =>  'is',
+                                'value'     =>  'Won'
+                            ]
+                        ]
+                    ]
+                ]
+            ]
         ];
     }
 
