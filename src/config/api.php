@@ -62,8 +62,8 @@ return [
             'plural'    =>  'kases',
             'create'    =>  [],
             'list'      =>  [
-                'method'    =>  'GET',
-                'endpoint'  =>  $root.'kases/'
+                'method'    =>  'POST',
+                'endpoint'  =>  $root.'kases/filters/results'
             ],
             'update'    =>  [],
             'delete'    =>  [],
