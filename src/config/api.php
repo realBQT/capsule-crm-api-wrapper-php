@@ -86,6 +86,20 @@ return [
                 'endpoint'  =>  $root.'tasks/{id}?embed=party,opportunity,kase,owner,nextTask'
             ]
         ],
+        'entries'      =>  [
+            'plural'    =>  'entries',
+            'create'    =>  [],
+            'list'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'{resource}/{id}/entries'
+            ],
+            'update'    =>  [],
+            'delete'    =>  [],
+            'show'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'tasks/{id}?embed=party,opportunity,kase,owner,nextTask'
+            ]
+        ],
         'settings'  =>  [
             'perPage'   =>  100
         ]

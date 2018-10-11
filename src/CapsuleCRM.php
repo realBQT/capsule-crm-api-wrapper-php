@@ -77,7 +77,12 @@ class CapsuleCRM{
 
             // 2. Isolate resource, subresource
             if (strpos($payload, ':') !== false) {
-                list($response['resource'],$response['q']['type']) = explode(':',$payload);
+                if(substr_count($payload,':')==2){
+                    list($response['resource'],$response['id'],$response['q'])   =   explode(':',$payload);
+                }
+                else if(substr_count($payload,':')==1){
+                    list($response['resource'],$response['q']['type']) = explode(':',$payload);
+                }
             }
             else{
                 $response['resource']   =   $payload;
@@ -111,13 +116,22 @@ class CapsuleCRM{
         // Resource Splitter
         $resource   =   $this->resource_splitter($resource);
         $config     =   $this->config['resources'][$resource['resource']]['list'];
-        
+        // var_dump($resource);die();
         $continue   =   false;
         $page       =   1;        
         $response   =   [];
         do{
             // fwrite(STDERR, print_r("Page: ".$page."\n", TRUE));
-            $data       =   $this->call($config['method'],$config['endpoint'].'?page='.$page, $payload);
+            // Identifying Entries
+            if(isset($resource['resource'])&&isset($resource['id'])&&isset($resource['q'])){
+                $endpoint   =   str_replace('{resource}',$resource['q'],$config['endpoint']);
+                $endpoint   =   str_replace('{id}',$resource['id'],$endpoint);
+            }
+            else{
+                $endpoint   =   $config['endpoint'];
+            }
+            // var_dump($endpoint);die();
+            $data       =   $this->call($config['method'],$endpoint.'?page='.$page, $payload);
             $continue   =   filter_var($data->getHeaders()['X-Pagination-Has-More'][0], FILTER_VALIDATE_BOOLEAN);
             $records    =   json_decode($data->getBody()->getContents(),1);
             

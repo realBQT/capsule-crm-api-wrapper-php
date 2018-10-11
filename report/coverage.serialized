@@ -5,80 +5,35 @@ $coverage->setData(array (
   array (
     13 => 
     array (
-      0 => 'OpportunityTest::testApiKeyIsPresent',
-      1 => 'OpportunityTest::testOpportunityList with data set #0',
-      2 => 'OpportunityTest::testOpportunityList with data set #3',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      4 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     14 => 
     array (
-      0 => 'OpportunityTest::testApiKeyIsPresent',
-      1 => 'OpportunityTest::testOpportunityList with data set #0',
-      2 => 'OpportunityTest::testOpportunityList with data set #3',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      4 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     16 => 
     array (
-      0 => 'OpportunityTest::testApiKeyIsPresent',
-      1 => 'OpportunityTest::testOpportunityList with data set #0',
-      2 => 'OpportunityTest::testOpportunityList with data set #3',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      4 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     17 => 
     array (
-      0 => 'OpportunityTest::testApiKeyIsPresent',
-      1 => 'OpportunityTest::testOpportunityList with data set #0',
-      2 => 'OpportunityTest::testOpportunityList with data set #3',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      4 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     21 => 
     array (
     ),
     23 => 
     array (
-      0 => 'OpportunityTest::testApiKeyIsPresent',
-      1 => 'OpportunityTest::testOpportunityList with data set #0',
-      2 => 'OpportunityTest::testOpportunityList with data set #3',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      4 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     24 => NULL,
     30 => 
     array (
-      0 => 'OpportunityTest::testApiKeyIsPresent',
-      1 => 'OpportunityTest::testOpportunityList with data set #0',
-      2 => 'OpportunityTest::testOpportunityList with data set #3',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      4 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     31 => 
     array (
-      0 => 'OpportunityTest::testApiKeyIsPresent',
-      1 => 'OpportunityTest::testOpportunityList with data set #0',
-      2 => 'OpportunityTest::testOpportunityList with data set #3',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      4 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     32 => NULL,
     38 => 
     array (
-      0 => 'OpportunityTest::testApiKeyIsPresent',
-      1 => 'OpportunityTest::testOpportunityList with data set #0',
-      2 => 'OpportunityTest::testOpportunityList with data set #3',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      4 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     39 => 
     array (
-      0 => 'OpportunityTest::testApiKeyIsPresent',
-      1 => 'OpportunityTest::testOpportunityList with data set #0',
-      2 => 'OpportunityTest::testOpportunityList with data set #3',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      4 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     40 => NULL,
     46 => 
@@ -90,305 +45,189 @@ $coverage->setData(array (
     48 => NULL,
     51 => 
     array (
-      0 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      1 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     52 => 
     array (
-      0 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      1 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     54 => 
     array (
-      0 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      1 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     55 => 
     array (
-      0 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      1 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     56 => NULL,
     63 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     64 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     65 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     66 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     68 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     70 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     71 => 
     array (
     ),
     73 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     75 => 
     array (
     ),
     79 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     80 => 
     array (
     ),
+    81 => 
+    array (
+    ),
     83 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
-    86 => 
+    84 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
-    87 => NULL,
-    92 => 
+    88 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
-    93 => 
+    91 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
-    96 => 
-    array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-    ),
+    92 => NULL,
     97 => 
     array (
     ),
     98 => 
     array (
     ),
-    99 => 
+    101 => 
+    array (
+    ),
+    102 => 
+    array (
+    ),
+    103 => 
     array (
     ),
     104 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
-    105 => NULL,
-    112 => 
+    109 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
-    113 => 
-    array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-    ),
-    115 => 
-    array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-    ),
-    116 => 
-    array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-    ),
+    110 => NULL,
     117 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
+    ),
+    118 => 
+    array (
     ),
     120 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     121 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     122 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-    ),
-    125 => 
-    array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     126 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     127 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
+    ),
+    128 => 
+    array (
     ),
     131 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
-    132 => 
+    134 => 
     array (
     ),
     135 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
-    137 => 
+    136 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
-    138 => NULL,
+    139 => 
+    array (
+    ),
+    140 => 
+    array (
+    ),
+    141 => 
+    array (
+    ),
+    145 => 
+    array (
+    ),
     146 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-      2 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #1',
-    ),
-    147 => 
-    array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-      2 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     149 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-      2 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #1',
-    ),
-    150 => 
-    array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-      2 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     151 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
-    153 => 
+    152 => NULL,
+    160 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
-    156 => 
+    161 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-      2 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
-    157 => 
+    163 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-      2 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #1',
-    ),
-    159 => 
-    array (
-      0 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      1 => 'OpportunityTest::testOpportunityDetails with data set #1',
-    ),
-    162 => 
-    array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     164 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
     ),
     165 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
+    ),
+    167 => 
+    array (
+    ),
+    170 => 
+    array (
+    ),
+    171 => 
+    array (
     ),
     173 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-      2 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
-    174 => 
+    176 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-      2 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #1',
-    ),
-    175 => 
-    array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-      2 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
     178 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-      2 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
-    181 => 
+    179 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-      2 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
-    182 => 
+    187 => 
     array (
-      0 => 'OpportunityTest::testOpportunityList with data set #0',
-      1 => 'OpportunityTest::testOpportunityList with data set #3',
-      2 => 'OpportunityTest::testOpportunityDetails with data set #0',
-      3 => 'OpportunityTest::testOpportunityDetails with data set #1',
     ),
-    183 => NULL,
-    191 => 
+    188 => 
+    array (
+    ),
+    189 => 
     array (
     ),
     192 => 
@@ -397,7 +236,20 @@ $coverage->setData(array (
     195 => 
     array (
     ),
+    196 => 
+    array (
+    ),
     197 => NULL,
+    205 => 
+    array (
+    ),
+    206 => 
+    array (
+    ),
+    209 => 
+    array (
+    ),
+    211 => NULL,
   ),
 ));
 $coverage->setTests(array (
@@ -405,31 +257,6 @@ $coverage->setTests(array (
   array (
     'size' => 'unknown',
     'status' => -1,
-  ),
-  'OpportunityTest::testApiKeyIsPresent' => 
-  array (
-    'size' => 'unknown',
-    'status' => 0,
-  ),
-  'OpportunityTest::testOpportunityList with data set #0' => 
-  array (
-    'size' => 'unknown',
-    'status' => 0,
-  ),
-  'OpportunityTest::testOpportunityList with data set #3' => 
-  array (
-    'size' => 'unknown',
-    'status' => 0,
-  ),
-  'OpportunityTest::testOpportunityDetails with data set #0' => 
-  array (
-    'size' => 'unknown',
-    'status' => 0,
-  ),
-  'OpportunityTest::testOpportunityDetails with data set #1' => 
-  array (
-    'size' => 'unknown',
-    'status' => 0,
   ),
 ));
 
