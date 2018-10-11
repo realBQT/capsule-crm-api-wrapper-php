@@ -13,7 +13,7 @@ return [
             'delete'    =>  [],
             'show'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'parties/{id}'
+                'endpoint'  =>  $root.'parties/{id}?embed=tags,fields,organisation'
             ]
         ],
         'organisation'    =>  [
@@ -27,7 +27,7 @@ return [
             'delete'    =>  [],
             'show'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'parties/{id}'
+                'endpoint'  =>  $root.'parties/{id}?embed=tags,fields,organisation'
             ]
         ],
         'party'     =>  [
@@ -41,7 +41,7 @@ return [
             'delete'    =>  [],
             'show'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'parties/{id}'
+                'endpoint'  =>  $root.'parties/{id}?embed=tags,fields,organisation'
             ]
         ],
         'opportunity'   =>  [
@@ -55,7 +55,7 @@ return [
             'delete'    =>  [],
             'show'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'opportunities/{id}'
+                'endpoint'  =>  $root.'opportunities/{id}?embed=tags,fields,party,milestone'
             ]
         ],
         'kase'      =>  [
@@ -69,7 +69,7 @@ return [
             'delete'    =>  [],
             'show'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'kases/{id}'
+                'endpoint'  =>  $root.'kases/{id}?embed=tags,fields,party'
             ]
         ],
         'task'      =>  [
@@ -83,7 +83,7 @@ return [
             'delete'    =>  [],
             'show'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'tasks/{id}'
+                'endpoint'  =>  $root.'tasks/{id}?embed=party,opportunity,kase,owner,nextTask'
             ]
         ],
         'settings'  =>  [
