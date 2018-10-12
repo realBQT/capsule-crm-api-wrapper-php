@@ -2,6 +2,7 @@
     "name": "blackquadrant/capsule-crm-api-wrapper-php",
     "description": "A simple to use, standards compliant, exhaustive api wrapper for CapsuleCRM for PHP",
     "type": "library",
+    "version": "0.3.0",
     "require": {
         "guzzlehttp/guzzle": "^6.3"
     },
