@@ -34,15 +34,15 @@ class UnitTest extends TestCase
         return [
             [
                 'payload'   =>  'opportunity',
-                'eop'       =>  ['opportunity']
+                'eop'       =>  [['opportunity'],'list']
             ],
             [
                 'payload'   =>  'opportunity:7111052',
-                'eop'       =>  ['opportunity','7111052']
+                'eop'       =>  [['opportunity','7111052'],'show']
             ],
             [
                 'payload'   =>  'entries:opportunity:7111052',
-                'eop'       =>  ['entries','opportunity','7111052']
+                'eop'       =>  [['entries','opportunity','7111052'],'list']
             ]
         ];
     }
@@ -51,36 +51,36 @@ class UnitTest extends TestCase
      * @covers \BlackQuadrant\CapsuleCRM\CapsuleCRM::request_builder
      * @dataProvider request_builder
      */
-    public function requestBuilder($resource,$actions,$eop){
-        foreach($actions as $key=>$action){
-            $op     =   $this->class->request_builder($resource,$action);
-            $this->assertEquals($eop[$key],$op);
-        }
+    public function requestBuilder($resource,$filter,$eop){
+        $op     =   $this->class->request_builder($resource,$action);
+        $this->assertEquals($eop,$op);
     }
-
-
 
     public function request_builder(){
         $root     =   'https://api.capsulecrm.com/api/v2/';
         return [
             [
-                'resource'  =>  'opportunity',                
-                'eop'       =>  [
-                    [
-                        0       =>  'POST',
-                        1       =>  $root.'opportunities/filters/results',
-                        2       =>  []
+                'resource'  =>  ['opportunity'],
+                'filter'    =>  [
+                    'filter'    =>  [
+                        'conditions'    =>  [
+                            [
+                                'field'     =>  'milestone',
+                                'operator'  =>  'is',
+                                'value'     =>  'Won'
+                            ]
+                        ]
                     ]
+                ],
+                'eop'  =>  [
+                    
                 ]
             ],
-            [
-                'resource'  =>  'opportunity:7111052',
-                [
-                    0       =>  'GET',
-                    1       =>  $root.'opportunities/{id}?embed=tags,fields,party,milestone',
-                    2       =>  []
-                ]
-            ]
+            // [
+            //     'resource'  =>  'opportunity:7111052',
+            //     'filter'    =>  [],
+            //     'e_op'      =>  json_decode('{}',1)
+            // ]
         ];
     }
     

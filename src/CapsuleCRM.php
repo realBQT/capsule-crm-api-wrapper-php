@@ -55,38 +55,41 @@ class CapsuleCRM{
          * 1.   Resource Splitter
          * 2.   Request Builder
          */
+        list($resource,$action)     =   $this->resource_splitter($resource);
+        
     }
-    public function show($resource,$id){        
-        $config     =   $this->config['resources'][$resource]['show'];   
-        $data       =   $this->call($config['method'],str_replace('{id}',$id,$config['endpoint']));
-
-        $response   =   json_decode($data->getBody()->getContents(),1);
-        return $response[$resource];
-    }
-
-    /**
-     * Split resource:subresource?query=..
-     */
+    
     public function resource_splitter($payload){
-        return explode(":",$payload);
-    }
-
-    public function filter($record, $filter){
-        // TODO nested filtering: owner.id
-        // Unsetting Subresource
-        if(empty($filter['type'])){
-            unset($filter['type']);
+        $parts  =   explode(":",$payload);
+        if(count($parts)%2==0){
+            $action     =   'show';
         }
-        // Filter
-        if(!empty($filter)){
-            foreach($filter as $key=>$value){
-                if(!isset($record[$key]) || ($record[$key] != $value)){
-                    return false;
+        else{
+            $action     =   'list';
+        }
+        return [$parts,$action];
+    }
+    
+    public function request_builder($resource,$filter){
+        // Resource Splitting
+        $resource           =   $this->resource_splitter($resource);
+        // Config
+        $config             =   $this->config['resources'][$resource['resource']][$action];
+        // Method
+        $response[0]        =   strtoupper($config['method']);
+        // Endpoint
+        $response[1]        =   $config['endpoint'];        
+        foreach($resource as $key=>$value){
+            if(strpos($response[1],'{')!==false){                
+                $key    =   '{'.$key.'}';
+                if(strpos($response[1],$key)!==false){
+                    $response[1]    =   str_replace($key,$value,$response[1]);
                 }
             }
         }
-            
-        return true;
+        // Payload
+        $response[2]        =   $filter;
+        return $response;
     }
     
     /**
@@ -122,27 +125,7 @@ class CapsuleCRM{
     }
 
 
-    public function request_builder($resource,$filter){
-        // Resource Splitting
-        $resource           =   $this->resource_splitter($resource);
-        // Config
-        $config             =   $this->config['resources'][$resource['resource']][$action];
-        // Method
-        $response[0]        =   strtoupper($config['method']);
-        // Endpoint
-        $response[1]        =   $config['endpoint'];        
-        foreach($resource as $key=>$value){
-            if(strpos($response[1],'{')!==false){                
-                $key    =   '{'.$key.'}';
-                if(strpos($response[1],$key)!==false){
-                    $response[1]    =   str_replace($key,$value,$response[1]);
-                }
-            }
-        }
-        // Payload
-        $response[2]        =   $filter;
-        return $response;
-    }
+    
     /**
      * API Caller
      */
