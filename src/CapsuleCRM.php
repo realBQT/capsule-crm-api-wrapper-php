@@ -47,6 +47,15 @@ class CapsuleCRM{
         return $this->call($config['method'],$config['endpoint']);
     }
 
+    /**
+     * Universal Caller
+     */
+    public function call($resource,$filter=[]){
+        /**
+         * 1.   Resource Splitter
+         * 2.   Request Builder
+         */
+    }
     public function show($resource,$id){        
         $config     =   $this->config['resources'][$resource]['show'];   
         $data       =   $this->call($config['method'],str_replace('{id}',$id,$config['endpoint']));
@@ -59,36 +68,7 @@ class CapsuleCRM{
      * Split resource:subresource?query=..
      */
     public function resource_splitter($payload){
-        // Splitting to resource, subresource, q
-        $response   =   [];
-        $response['resource']       =   '';
-        $response['q']              =   [];
-        $response['q']['type']      =   '';
-        
-        if(!empty($payload)){
-            // 1. Isolate q
-            if (strpos($payload, '?') !== false) {
-                list($payload,$query) = explode('?',$payload);
-            }
-            if(!empty($query)){
-                // Break into smaller parts
-                parse_str($query, $response['q']);
-            }
-
-            // 2. Isolate resource, subresource
-            if (strpos($payload, ':') !== false) {
-                if(substr_count($payload,':')==2){
-                    list($response['resource'],$response['id'],$response['q'])   =   explode(':',$payload);
-                }
-                else if(substr_count($payload,':')==1){
-                    list($response['resource'],$response['q']['type']) = explode(':',$payload);
-                }
-            }
-            else{
-                $response['resource']   =   $payload;
-            }
-        }
-        return $response;
+        return explode(":",$payload);
     }
 
     public function filter($record, $filter){
@@ -112,7 +92,7 @@ class CapsuleCRM{
     /**
      * Read resources
      */
-    public function list($resource,$payload=[]){          
+    public function list($resource,$payload=[],$id=null){          
         // Resource Splitter
         $config     =   $this->config['resources'][$resource['resource']]['list'];
         $continue   =   false;
@@ -142,7 +122,7 @@ class CapsuleCRM{
     }
 
 
-    public function request_builder($resource,$action){
+    public function request_builder($resource,$filter){
         // Resource Splitting
         $resource           =   $this->resource_splitter($resource);
         // Config
@@ -159,12 +139,14 @@ class CapsuleCRM{
                 }
             }
         }
+        // Payload
+        $response[2]        =   $filter;
         return $response;
     }
     /**
      * API Caller
      */
-    private function call($resource,$action){
+    private function call_api($resource,$action){
         list($method,$endpoint,$settings)    =   $this->request_builder($resource,$config);
         $client     =   new Client();                
         $method     =   strtoupper($method);

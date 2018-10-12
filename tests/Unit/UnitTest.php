@@ -9,16 +9,10 @@ class UnitTest extends TestCase
     private $config,$class;
 
     public function setUp(){
-        // config
+        // Config
         $this->config   =   require \hiqdev\composer\config\Builder::path('api');
-        // client
+        // Client
         $this->class    =   new CapsuleCRM\CapsuleCRM(API_KEY,$this->config);        
-    }
-
-    /**
-     * @test
-     */
-    public function apiKeyIsPresent(){
         // API_KEY constant is set
         $this->assertTrue(defined('API_KEY'));
         // API_KEY is not null
@@ -26,7 +20,7 @@ class UnitTest extends TestCase
         // API_KEY is not empty
         $this->assertNotEmpty(API_KEY);
     }
-
+    
     /**
      * @test
      * @covers \BlackQuadrant\CapsuleCRM\CapsuleCRM::resource_splitter
@@ -34,9 +28,24 @@ class UnitTest extends TestCase
      */
     public function resourceSplitter($payload, $expected_op){
         $op     =   $this->class->resource_splitter($payload);
-        $this->assertSame($op, $expected_op);
+        $this->assertSame($expected_op, $op);
     }
-
+    public function resource_splitter(){
+        return [
+            [
+                'payload'   =>  'opportunity',
+                'eop'       =>  ['opportunity']
+            ],
+            [
+                'payload'   =>  'opportunity:7111052',
+                'eop'       =>  ['opportunity','7111052']
+            ],
+            [
+                'payload'   =>  'entries:opportunity:7111052',
+                'eop'       =>  ['entries','opportunity','7111052']
+            ]
+        ];
+    }
     /**
      * @test
      * @covers \BlackQuadrant\CapsuleCRM\CapsuleCRM::request_builder
@@ -49,45 +58,32 @@ class UnitTest extends TestCase
         }
     }
 
+
+
     public function request_builder(){
         $root     =   'https://api.capsulecrm.com/api/v2/';
         return [
             [
-                'resource'  =>  'opportunity',
-                'actions'   =>  [
-                    'list',
-                    'show'
-                ],
+                'resource'  =>  'opportunity',                
                 'eop'       =>  [
                     [
                         0       =>  'POST',
                         1       =>  $root.'opportunities/filters/results',
                         2       =>  []
-                    ],
-                    [
-                        0       =>  'GET',
-                        1       =>  $root.'opportunities/{id}?embed=tags,fields,party,milestone',
-                        2       =>  []
                     ]
+                ]
+            ],
+            [
+                'resource'  =>  'opportunity:7111052',
+                [
+                    0       =>  'GET',
+                    1       =>  $root.'opportunities/{id}?embed=tags,fields,party,milestone',
+                    2       =>  []
                 ]
             ]
         ];
     }
-    public function resource_splitter(){
-        return [
-            // Resource only
-            ['payload' => 'party', 'expected_op'=>['resource'=>'party', 'q'=>['type'=>'']]],
-            // Resource & Sub Resource
-            ['payload' => 'party:person', 'expected_op'=>['resource'=>'party', 'q'=>['type'=>'person']]],
-            // Resource, Sub Resource & one Query
-            ['payload' => 'party:person?id=140356573', 'expected_op'=>['resource'=>'party', 'q'=>['id'=>'140356573', 'type'=>'person']]],
-            // Resource, Sub Resource & multiple Query
-            ['payload' => 'party:person?id=140356573&embed=tags', 'expected_op'=>['resource'=>'party', 'q'=>['id'=>'140356573', 'embed'=>'tags', 'type'=>'person']]],
-            // Multi layer resource
-            ['payload'=>'entries:7111052:opportunities', 'expected_op'=>['resource'=>'entries','q'=>'opportunities','id'=>'7111052']],
-            ['payload'=>'tracks:7111052:opportunities', 'expected_op'=>['resource'=>'tracks','q'=>'opportunities','id'=>'7111052']]
-        ];
-    }
+    
 
 }
 

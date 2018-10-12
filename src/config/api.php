@@ -13,7 +13,7 @@ return [
             'delete'    =>  [],
             'show'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'parties/{id}?embed=tags,fields,organisation'
+                'endpoint'  =>  $root.'parties/{0}?embed=tags,fields,organisation'
             ]
         ],
         'organisation'    =>  [
@@ -27,7 +27,7 @@ return [
             'delete'    =>  [],
             'show'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'parties/{id}?embed=tags,fields,organisation'
+                'endpoint'  =>  $root.'parties/{0}?embed=tags,fields,organisation'
             ]
         ],
         'party'     =>  [
@@ -41,7 +41,7 @@ return [
             'delete'    =>  [],
             'show'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'parties/{id}?embed=tags,fields,organisation'
+                'endpoint'  =>  $root.'parties/{0}?embed=tags,fields,organisation'
             ]
         ],
         'opportunity'   =>  [
@@ -55,7 +55,7 @@ return [
             'delete'    =>  [],
             'show'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'opportunities/{id}?embed=tags,fields,party,milestone'
+                'endpoint'  =>  $root.'opportunities/{0}?embed=tags,fields,party,milestone'
             ]
         ],
         'kase'      =>  [
@@ -69,7 +69,7 @@ return [
             'delete'    =>  [],
             'show'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'kases/{id}?embed=tags,fields,party'
+                'endpoint'  =>  $root.'kases/{0}?embed=tags,fields,party'
             ]
         ],
         'task'      =>  [
@@ -83,7 +83,7 @@ return [
             'delete'    =>  [],
             'show'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'tasks/{id}?embed=party,opportunity,kase,owner,nextTask'
+                'endpoint'  =>  $root.'tasks/{0}?embed=party,opportunity,kase,owner,nextTask'
             ]
         ],
         'entries'      =>  [
@@ -91,13 +91,13 @@ return [
             'create'    =>  [],
             'list'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'{q}/{id}/entries'
+                'endpoint'  =>  $root.'{0}/{1}/entries'
             ],
             'update'    =>  [],
             'delete'    =>  [],
             'show'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'tasks/{id}?embed=party,opportunity,kase,owner,nextTask'
+                'endpoint'  =>  $root.'tasks/{0}?embed=party,opportunity,kase,owner,nextTask'
             ]
         ],
         'settings'  =>  [
