@@ -15,7 +15,10 @@ class UnitTest extends TestCase
         $this->class    =   new CapsuleCRM\CapsuleCRM(API_KEY,$this->config);
     }
 
-    public function testApiKeyIsPresent(){
+    /**
+     * @test
+     */
+    public function apiKeyIsPresent(){
         // API_KEY constant is set
         $this->assertTrue(defined('API_KEY'));
         // API_KEY is not null
@@ -25,9 +28,11 @@ class UnitTest extends TestCase
     }
 
     /**
+     * @test
+     * @covers \BlackQuadrant\CapsuleCRM\CapsuleCRM::resource_splitter
      * @dataProvider payload
      */
-    public function testResourceSplitter($payload, $expected_op){
+    public function resourceSplitter($payload, $expected_op){
         $op     =   $this->class->resource_splitter($payload);
         $this->assertSame($op, $expected_op);
     }
@@ -39,8 +44,12 @@ class UnitTest extends TestCase
             // Resource & Sub Resource
             ['payload' => 'party:person', 'expected_op'=>['resource'=>'party', 'q'=>['type'=>'person']]],
             // Resource, Sub Resource & one Query
-            ['payload' => 'party:person?id=140356573', 'expected_op'=>['resource'=>'party', 'q'=>['id'=>'140356573', 'type'=>'person']]]
+            ['payload' => 'party:person?id=140356573', 'expected_op'=>['resource'=>'party', 'q'=>['id'=>'140356573', 'type'=>'person']]],
             // Resource, Sub Resource & multiple Query
+            ['payload' => 'party:person?id=140356573&embed=tags', 'expected_op'=>['resource'=>'party', 'q'=>['id'=>'140356573', 'embed'=>'tags', 'type'=>'person']]],
+            // Multi layer resource
+            ['payload'=>'entries:7111052:opportunities', 'expected_op'=>['resource'=>'entries','q'=>'opportunities','id'=>'7111052']],
+            ['payload'=>'tracks:7111052:opportunities', 'expected_op'=>['resource'=>'tracks','q'=>'opportunities','id'=>'7111052']]
         ];
     }
 

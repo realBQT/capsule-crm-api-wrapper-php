@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 use BlackQuadrant\CapsuleCRM;
 
-class TaskTest extends TestCase
+class EntryTest extends TestCase
 {
     private $config;
 
@@ -32,7 +32,7 @@ class TaskTest extends TestCase
         $response   =   $this->client->list($resource, $status);  
         // var_dump($response);
         // Response has records
-        fwrite(STDERR, print_r(json_encode($response)." Tasks found\n", TRUE));die();
+        fwrite(STDERR, print_r(json_encode($response)." Tasks found\n", TRUE));
         $this->assertTrue( count($response) > 1 );
         // Resource Subresource
         $r          =   $this->client->resource_splitter($resource);

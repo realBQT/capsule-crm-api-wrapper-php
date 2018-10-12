@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" tests="7" assertions="9" errors="0" failures="0" skipped="0" time="0.037638">
+    <testcase name="apiKeyIsPresent" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="21" assertions="3" time="0.005951"/>
+    <testsuite name="UnitTest::resourceSplitter" tests="6" assertions="6" errors="0" failures="0" skipped="0" time="0.031687">
+      <testcase name="resourceSplitter with data set #0" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="35" assertions="1" time="0.004348"/>
+      <testcase name="resourceSplitter with data set #1" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="35" assertions="1" time="0.005056"/>
+      <testcase name="resourceSplitter with data set #2" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="35" assertions="1" time="0.005180"/>
+      <testcase name="resourceSplitter with data set #3" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="35" assertions="1" time="0.005019"/>
+      <testcase name="resourceSplitter with data set #4" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="35" assertions="1" time="0.006444"/>
+      <testcase name="resourceSplitter with data set #5" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="35" assertions="1" time="0.005640"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

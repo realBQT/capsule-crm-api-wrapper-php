@@ -15,7 +15,10 @@ class CaseTest extends TestCase
         $this->client   =   new CapsuleCRM\CapsuleCRM(API_KEY,$this->config);
     }
 
-    public function testApiKeyIsPresent(){
+    /**
+     * @test
+     */
+    public function apiKeyIsPresent(){
         // API_KEY constant is set
         $this->assertTrue(defined('API_KEY'));
         // API_KEY is not null
@@ -25,9 +28,11 @@ class CaseTest extends TestCase
     }
 
     /**
-     * @dataProvider resource_subresource
+     * @test
+     * @covers \BlackQuadrant\CapsuleCRM\CapsuleCRM::list
+     * @dataProvider list
      */
-    public function testCaseList($resource){    
+    public function caseList($resource,$filter,$eop){    
         // Response
         $response   =   $this->client->list($resource);  
         // Response has records
@@ -41,6 +46,39 @@ class CaseTest extends TestCase
         }
         
     }
+    /**
+     * Data Provider to list
+     */
+    public function list(){
+        return [
+            // All Cases
+            [
+                'resource'  =>  'kase',
+                'filter'    =>  [
+                    'filter'    =>  [
+                        'conditions'    =>  []
+                    ]
+                ],
+                'eop'   =>  ''
+            ],
+            // Closed Cases
+            [
+                'resource'  =>  'kase',
+                'filter'    =>  [
+                    'filter'    =>  [
+                        'conditions'    =>  [
+                            [
+                                'field'     =>  'status',
+                                'operator'  =>  'is',
+                                'value'     =>  'CLOSED'
+                            ]
+                        ]
+                    ]
+                ],
+                'eop'   =>  ''
+            ]
+        ];
+    }
 
     /**
      * @dataProvider case_id
@@ -52,14 +90,7 @@ class CaseTest extends TestCase
         $this->assertArrayHasKey('status',$response);
     }
 
-    public function resource_subresource(){
-        return [
-            // All Cases
-            ['kase'],
-            // Closed Cases
-            ['kase?status=CLOSED'],
-        ];
-    }
+    
 
     public function case_id(){
         return [

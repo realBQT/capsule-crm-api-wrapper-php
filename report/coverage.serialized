@@ -5,35 +5,44 @@ $coverage->setData(array (
   array (
     13 => 
     array (
+      0 => 'UnitTest::apiKeyIsPresent',
     ),
     14 => 
     array (
+      0 => 'UnitTest::apiKeyIsPresent',
     ),
     16 => 
     array (
+      0 => 'UnitTest::apiKeyIsPresent',
     ),
     17 => 
     array (
+      0 => 'UnitTest::apiKeyIsPresent',
     ),
     21 => 
     array (
     ),
     23 => 
     array (
+      0 => 'UnitTest::apiKeyIsPresent',
     ),
     24 => NULL,
     30 => 
     array (
+      0 => 'UnitTest::apiKeyIsPresent',
     ),
     31 => 
     array (
+      0 => 'UnitTest::apiKeyIsPresent',
     ),
     32 => NULL,
     38 => 
     array (
+      0 => 'UnitTest::apiKeyIsPresent',
     ),
     39 => 
     array (
+      0 => 'UnitTest::apiKeyIsPresent',
     ),
     40 => NULL,
     46 => 
@@ -58,51 +67,125 @@ $coverage->setData(array (
     56 => NULL,
     63 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #0',
+      1 => 'UnitTest::resourceSplitter with data set #1',
+      2 => 'UnitTest::resourceSplitter with data set #2',
+      3 => 'UnitTest::resourceSplitter with data set #3',
+      4 => 'UnitTest::resourceSplitter with data set #4',
+      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     64 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #0',
+      1 => 'UnitTest::resourceSplitter with data set #1',
+      2 => 'UnitTest::resourceSplitter with data set #2',
+      3 => 'UnitTest::resourceSplitter with data set #3',
+      4 => 'UnitTest::resourceSplitter with data set #4',
+      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     65 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #0',
+      1 => 'UnitTest::resourceSplitter with data set #1',
+      2 => 'UnitTest::resourceSplitter with data set #2',
+      3 => 'UnitTest::resourceSplitter with data set #3',
+      4 => 'UnitTest::resourceSplitter with data set #4',
+      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     66 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #0',
+      1 => 'UnitTest::resourceSplitter with data set #1',
+      2 => 'UnitTest::resourceSplitter with data set #2',
+      3 => 'UnitTest::resourceSplitter with data set #3',
+      4 => 'UnitTest::resourceSplitter with data set #4',
+      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     68 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #0',
+      1 => 'UnitTest::resourceSplitter with data set #1',
+      2 => 'UnitTest::resourceSplitter with data set #2',
+      3 => 'UnitTest::resourceSplitter with data set #3',
+      4 => 'UnitTest::resourceSplitter with data set #4',
+      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     70 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #0',
+      1 => 'UnitTest::resourceSplitter with data set #1',
+      2 => 'UnitTest::resourceSplitter with data set #2',
+      3 => 'UnitTest::resourceSplitter with data set #3',
+      4 => 'UnitTest::resourceSplitter with data set #4',
+      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     71 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #2',
+      1 => 'UnitTest::resourceSplitter with data set #3',
     ),
     73 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #0',
+      1 => 'UnitTest::resourceSplitter with data set #1',
+      2 => 'UnitTest::resourceSplitter with data set #2',
+      3 => 'UnitTest::resourceSplitter with data set #3',
+      4 => 'UnitTest::resourceSplitter with data set #4',
+      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     75 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #2',
+      1 => 'UnitTest::resourceSplitter with data set #3',
     ),
     79 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #0',
+      1 => 'UnitTest::resourceSplitter with data set #1',
+      2 => 'UnitTest::resourceSplitter with data set #2',
+      3 => 'UnitTest::resourceSplitter with data set #3',
+      4 => 'UnitTest::resourceSplitter with data set #4',
+      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     80 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #1',
+      1 => 'UnitTest::resourceSplitter with data set #2',
+      2 => 'UnitTest::resourceSplitter with data set #3',
+      3 => 'UnitTest::resourceSplitter with data set #4',
+      4 => 'UnitTest::resourceSplitter with data set #5',
     ),
     81 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #4',
+      1 => 'UnitTest::resourceSplitter with data set #5',
     ),
     83 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #1',
+      1 => 'UnitTest::resourceSplitter with data set #2',
+      2 => 'UnitTest::resourceSplitter with data set #3',
     ),
     84 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #1',
+      1 => 'UnitTest::resourceSplitter with data set #2',
+      2 => 'UnitTest::resourceSplitter with data set #3',
+      3 => 'UnitTest::resourceSplitter with data set #4',
+      4 => 'UnitTest::resourceSplitter with data set #5',
     ),
     88 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #0',
     ),
     91 => 
     array (
+      0 => 'UnitTest::resourceSplitter with data set #0',
+      1 => 'UnitTest::resourceSplitter with data set #1',
+      2 => 'UnitTest::resourceSplitter with data set #2',
+      3 => 'UnitTest::resourceSplitter with data set #3',
+      4 => 'UnitTest::resourceSplitter with data set #4',
+      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     92 => NULL,
     97 => 
@@ -257,6 +340,41 @@ $coverage->setTests(array (
   array (
     'size' => 'unknown',
     'status' => -1,
+  ),
+  'UnitTest::apiKeyIsPresent' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'UnitTest::resourceSplitter with data set #0' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'UnitTest::resourceSplitter with data set #1' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'UnitTest::resourceSplitter with data set #2' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'UnitTest::resourceSplitter with data set #3' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'UnitTest::resourceSplitter with data set #4' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'UnitTest::resourceSplitter with data set #5' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
   ),
 ));
 
