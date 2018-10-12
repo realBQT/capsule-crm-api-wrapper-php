@@ -114,23 +114,13 @@ class CapsuleCRM{
      */
     public function list($resource,$payload=[]){          
         // Resource Splitter
-        $resource   =   $this->resource_splitter($resource);
         $config     =   $this->config['resources'][$resource['resource']]['list'];
-        // var_dump($resource);die();
         $continue   =   false;
         $page       =   1;        
         $response   =   [];
         do{
-            // fwrite(STDERR, print_r("Page: ".$page."\n", TRUE));
             // Identifying Entries
-            if(isset($resource['resource'])&&isset($resource['id'])&&isset($resource['q'])){
-                $endpoint   =   str_replace('{resource}',$resource['q'],$config['endpoint']);
-                $endpoint   =   str_replace('{id}',$resource['id'],$endpoint);
-            }
-            else{
-                $endpoint   =   $config['endpoint'];
-            }
-            // var_dump($endpoint);die();
+            
             $data       =   $this->call($config['method'],$endpoint.'?page='.$page, $payload);
             $continue   =   filter_var($data->getHeaders()['X-Pagination-Has-More'][0], FILTER_VALIDATE_BOOLEAN);
             $records    =   json_decode($data->getBody()->getContents(),1);
@@ -152,11 +142,30 @@ class CapsuleCRM{
     }
 
 
-
+    public function request_builder($resource,$action){
+        // Resource Splitting
+        $resource           =   $this->resource_splitter($resource);
+        // Config
+        $config             =   $this->config['resources'][$resource['resource']][$action];
+        // Method
+        $response[0]        =   strtoupper($config['method']);
+        // Endpoint
+        $response[1]        =   $config['endpoint'];        
+        foreach($resource as $key=>$value){
+            if(strpos($response[1],'{')!==false){                
+                $key    =   '{'.$key.'}';
+                if(strpos($response[1],$key)!==false){
+                    $response[1]    =   str_replace($key,$value,$response[1]);
+                }
+            }
+        }
+        return $response;
+    }
     /**
      * API Caller
      */
-    private function call( $method, $api_endpoint, $payload=[] ){
+    private function call($resource,$action){
+        list($method,$endpoint,$settings)    =   $this->request_builder($resource,$config);
         $client     =   new Client();                
         $method     =   strtoupper($method);
         // Query params from api_endpoint

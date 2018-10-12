@@ -91,7 +91,7 @@ return [
             'create'    =>  [],
             'list'      =>  [
                 'method'    =>  'GET',
-                'endpoint'  =>  $root.'{resource}/{id}/entries'
+                'endpoint'  =>  $root.'{q}/{id}/entries'
             ],
             'update'    =>  [],
             'delete'    =>  [],

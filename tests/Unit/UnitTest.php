@@ -6,13 +6,13 @@ use BlackQuadrant\CapsuleCRM;
 
 class UnitTest extends TestCase
 {
-    private $config;
+    private $config,$class;
 
     public function setUp(){
         // config
         $this->config   =   require \hiqdev\composer\config\Builder::path('api');
         // client
-        $this->class    =   new CapsuleCRM\CapsuleCRM(API_KEY,$this->config);
+        $this->class    =   new CapsuleCRM\CapsuleCRM(API_KEY,$this->config);        
     }
 
     /**
@@ -30,14 +30,50 @@ class UnitTest extends TestCase
     /**
      * @test
      * @covers \BlackQuadrant\CapsuleCRM\CapsuleCRM::resource_splitter
-     * @dataProvider payload
+     * @dataProvider resource_splitter
      */
     public function resourceSplitter($payload, $expected_op){
         $op     =   $this->class->resource_splitter($payload);
         $this->assertSame($op, $expected_op);
     }
 
-    public function payload(){
+    /**
+     * @test
+     * @covers \BlackQuadrant\CapsuleCRM\CapsuleCRM::request_builder
+     * @dataProvider request_builder
+     */
+    public function requestBuilder($resource,$actions,$eop){
+        foreach($actions as $key=>$action){
+            $op     =   $this->class->request_builder($resource,$action);
+            $this->assertEquals($eop[$key],$op);
+        }
+    }
+
+    public function request_builder(){
+        $root     =   'https://api.capsulecrm.com/api/v2/';
+        return [
+            [
+                'resource'  =>  'opportunity',
+                'actions'   =>  [
+                    'list',
+                    'show'
+                ],
+                'eop'       =>  [
+                    [
+                        0       =>  'POST',
+                        1       =>  $root.'opportunities/filters/results',
+                        2       =>  []
+                    ],
+                    [
+                        0       =>  'GET',
+                        1       =>  $root.'opportunities/{id}?embed=tags,fields,party,milestone',
+                        2       =>  []
+                    ]
+                ]
+            ]
+        ];
+    }
+    public function resource_splitter(){
         return [
             // Resource only
             ['payload' => 'party', 'expected_op'=>['resource'=>'party', 'q'=>['type'=>'']]],

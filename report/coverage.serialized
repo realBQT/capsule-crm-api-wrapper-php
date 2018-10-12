@@ -5,44 +5,35 @@ $coverage->setData(array (
   array (
     13 => 
     array (
-      0 => 'UnitTest::apiKeyIsPresent',
     ),
     14 => 
     array (
-      0 => 'UnitTest::apiKeyIsPresent',
     ),
     16 => 
     array (
-      0 => 'UnitTest::apiKeyIsPresent',
     ),
     17 => 
     array (
-      0 => 'UnitTest::apiKeyIsPresent',
     ),
     21 => 
     array (
     ),
     23 => 
     array (
-      0 => 'UnitTest::apiKeyIsPresent',
     ),
     24 => NULL,
     30 => 
     array (
-      0 => 'UnitTest::apiKeyIsPresent',
     ),
     31 => 
     array (
-      0 => 'UnitTest::apiKeyIsPresent',
     ),
     32 => NULL,
     38 => 
     array (
-      0 => 'UnitTest::apiKeyIsPresent',
     ),
     39 => 
     array (
-      0 => 'UnitTest::apiKeyIsPresent',
     ),
     40 => NULL,
     46 => 
@@ -67,125 +58,51 @@ $coverage->setData(array (
     56 => NULL,
     63 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #0',
-      1 => 'UnitTest::resourceSplitter with data set #1',
-      2 => 'UnitTest::resourceSplitter with data set #2',
-      3 => 'UnitTest::resourceSplitter with data set #3',
-      4 => 'UnitTest::resourceSplitter with data set #4',
-      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     64 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #0',
-      1 => 'UnitTest::resourceSplitter with data set #1',
-      2 => 'UnitTest::resourceSplitter with data set #2',
-      3 => 'UnitTest::resourceSplitter with data set #3',
-      4 => 'UnitTest::resourceSplitter with data set #4',
-      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     65 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #0',
-      1 => 'UnitTest::resourceSplitter with data set #1',
-      2 => 'UnitTest::resourceSplitter with data set #2',
-      3 => 'UnitTest::resourceSplitter with data set #3',
-      4 => 'UnitTest::resourceSplitter with data set #4',
-      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     66 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #0',
-      1 => 'UnitTest::resourceSplitter with data set #1',
-      2 => 'UnitTest::resourceSplitter with data set #2',
-      3 => 'UnitTest::resourceSplitter with data set #3',
-      4 => 'UnitTest::resourceSplitter with data set #4',
-      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     68 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #0',
-      1 => 'UnitTest::resourceSplitter with data set #1',
-      2 => 'UnitTest::resourceSplitter with data set #2',
-      3 => 'UnitTest::resourceSplitter with data set #3',
-      4 => 'UnitTest::resourceSplitter with data set #4',
-      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     70 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #0',
-      1 => 'UnitTest::resourceSplitter with data set #1',
-      2 => 'UnitTest::resourceSplitter with data set #2',
-      3 => 'UnitTest::resourceSplitter with data set #3',
-      4 => 'UnitTest::resourceSplitter with data set #4',
-      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     71 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #2',
-      1 => 'UnitTest::resourceSplitter with data set #3',
     ),
     73 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #0',
-      1 => 'UnitTest::resourceSplitter with data set #1',
-      2 => 'UnitTest::resourceSplitter with data set #2',
-      3 => 'UnitTest::resourceSplitter with data set #3',
-      4 => 'UnitTest::resourceSplitter with data set #4',
-      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     75 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #2',
-      1 => 'UnitTest::resourceSplitter with data set #3',
     ),
     79 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #0',
-      1 => 'UnitTest::resourceSplitter with data set #1',
-      2 => 'UnitTest::resourceSplitter with data set #2',
-      3 => 'UnitTest::resourceSplitter with data set #3',
-      4 => 'UnitTest::resourceSplitter with data set #4',
-      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     80 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #1',
-      1 => 'UnitTest::resourceSplitter with data set #2',
-      2 => 'UnitTest::resourceSplitter with data set #3',
-      3 => 'UnitTest::resourceSplitter with data set #4',
-      4 => 'UnitTest::resourceSplitter with data set #5',
     ),
     81 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #4',
-      1 => 'UnitTest::resourceSplitter with data set #5',
     ),
     83 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #1',
-      1 => 'UnitTest::resourceSplitter with data set #2',
-      2 => 'UnitTest::resourceSplitter with data set #3',
     ),
     84 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #1',
-      1 => 'UnitTest::resourceSplitter with data set #2',
-      2 => 'UnitTest::resourceSplitter with data set #3',
-      3 => 'UnitTest::resourceSplitter with data set #4',
-      4 => 'UnitTest::resourceSplitter with data set #5',
     ),
     88 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #0',
     ),
     91 => 
     array (
-      0 => 'UnitTest::resourceSplitter with data set #0',
-      1 => 'UnitTest::resourceSplitter with data set #1',
-      2 => 'UnitTest::resourceSplitter with data set #2',
-      3 => 'UnitTest::resourceSplitter with data set #3',
-      4 => 'UnitTest::resourceSplitter with data set #4',
-      5 => 'UnitTest::resourceSplitter with data set #5',
     ),
     92 => NULL,
     97 => 
@@ -216,28 +133,28 @@ $coverage->setData(array (
     118 => 
     array (
     ),
+    119 => 
+    array (
+    ),
     120 => 
     array (
     ),
-    121 => 
+    124 => 
     array (
     ),
-    122 => 
+    125 => 
     array (
     ),
     126 => 
     array (
     ),
-    127 => 
+    129 => 
     array (
     ),
-    128 => 
+    130 => 
     array (
     ),
     131 => 
-    array (
-    ),
-    134 => 
     array (
     ),
     135 => 
@@ -249,59 +166,80 @@ $coverage->setData(array (
     139 => 
     array (
     ),
-    140 => 
-    array (
-    ),
     141 => 
     array (
     ),
-    145 => 
+    142 => NULL,
+    147 => 
     array (
-    ),
-    146 => 
-    array (
+      0 => 'UnitTest::requestBuilder with data set #0',
     ),
     149 => 
     array (
+      0 => 'UnitTest::requestBuilder with data set #0',
     ),
     151 => 
     array (
+      0 => 'UnitTest::requestBuilder with data set #0',
     ),
-    152 => NULL,
-    160 => 
+    153 => 
+    array (
+      0 => 'UnitTest::requestBuilder with data set #0',
+    ),
+    154 => 
+    array (
+      0 => 'UnitTest::requestBuilder with data set #0',
+    ),
+    155 => 
+    array (
+      0 => 'UnitTest::requestBuilder with data set #0',
+    ),
+    156 => 
     array (
     ),
-    161 => 
+    157 => 
     array (
     ),
-    163 => 
+    158 => 
+    array (
+      0 => 'UnitTest::requestBuilder with data set #0',
+    ),
+    162 => 
+    array (
+      0 => 'UnitTest::requestBuilder with data set #0',
+    ),
+    163 => NULL,
+    168 => 
     array (
     ),
-    164 => 
-    array (
-    ),
-    165 => 
-    array (
-    ),
-    167 => 
+    169 => 
     array (
     ),
     170 => 
     array (
     ),
-    171 => 
+    172 => 
     array (
     ),
     173 => 
     array (
     ),
+    174 => 
+    array (
+    ),
     176 => 
     array (
     ),
-    178 => 
+    179 => 
     array (
     ),
-    179 => 
+    180 => 
+    array (
+    ),
+    182 => 
+    array (
+    ),
+    185 => 
     array (
     ),
     187 => 
@@ -310,29 +248,35 @@ $coverage->setData(array (
     188 => 
     array (
     ),
-    189 => 
-    array (
-    ),
-    192 => 
-    array (
-    ),
-    195 => 
-    array (
-    ),
     196 => 
     array (
     ),
-    197 => NULL,
+    197 => 
+    array (
+    ),
+    198 => 
+    array (
+    ),
+    201 => 
+    array (
+    ),
+    204 => 
+    array (
+    ),
     205 => 
     array (
     ),
-    206 => 
+    206 => NULL,
+    214 => 
     array (
     ),
-    209 => 
+    215 => 
     array (
     ),
-    211 => NULL,
+    218 => 
+    array (
+    ),
+    220 => NULL,
   ),
 ));
 $coverage->setTests(array (
@@ -341,40 +285,10 @@ $coverage->setTests(array (
     'size' => 'unknown',
     'status' => -1,
   ),
-  'UnitTest::apiKeyIsPresent' => 
+  'UnitTest::requestBuilder with data set #0' => 
   array (
     'size' => 'unknown',
-    'status' => 0,
-  ),
-  'UnitTest::resourceSplitter with data set #0' => 
-  array (
-    'size' => 'unknown',
-    'status' => 0,
-  ),
-  'UnitTest::resourceSplitter with data set #1' => 
-  array (
-    'size' => 'unknown',
-    'status' => 0,
-  ),
-  'UnitTest::resourceSplitter with data set #2' => 
-  array (
-    'size' => 'unknown',
-    'status' => 0,
-  ),
-  'UnitTest::resourceSplitter with data set #3' => 
-  array (
-    'size' => 'unknown',
-    'status' => 0,
-  ),
-  'UnitTest::resourceSplitter with data set #4' => 
-  array (
-    'size' => 'unknown',
-    'status' => 0,
-  ),
-  'UnitTest::resourceSplitter with data set #5' => 
-  array (
-    'size' => 'unknown',
-    'status' => 0,
+    'status' => 3,
   ),
 ));
 

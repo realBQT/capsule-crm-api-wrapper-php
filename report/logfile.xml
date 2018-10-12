@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" tests="7" assertions="9" errors="0" failures="0" skipped="0" time="0.037638">
-    <testcase name="apiKeyIsPresent" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="21" assertions="3" time="0.005951"/>
-    <testsuite name="UnitTest::resourceSplitter" tests="6" assertions="6" errors="0" failures="0" skipped="0" time="0.031687">
-      <testcase name="resourceSplitter with data set #0" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="35" assertions="1" time="0.004348"/>
-      <testcase name="resourceSplitter with data set #1" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="35" assertions="1" time="0.005056"/>
-      <testcase name="resourceSplitter with data set #2" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="35" assertions="1" time="0.005180"/>
-      <testcase name="resourceSplitter with data set #3" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="35" assertions="1" time="0.005019"/>
-      <testcase name="resourceSplitter with data set #4" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="35" assertions="1" time="0.006444"/>
-      <testcase name="resourceSplitter with data set #5" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="35" assertions="1" time="0.005640"/>
+  <testsuite name="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" tests="1" assertions="1" errors="0" failures="1" skipped="0" time="0.008511">
+    <testsuite name="UnitTest::requestBuilder" tests="1" assertions="1" errors="0" failures="1" skipped="0" time="0.008511">
+      <testcase name="requestBuilder with data set #0" class="UnitTest" classname="UnitTest" file="/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php" line="45" assertions="1" time="0.008511">
+        <failure type="PHPUnit\Framework\ExpectationFailedException">UnitTest::requestBuilder with data set #0 ('opportunity', array('list', 'show'), array(array('POST', 'https://api.capsulecrm.com/ap...esults', array()), array('GET', 'https://api.capsulecrm.com/ap...estone', array())))
+Failed asserting that two arrays are equal.
+--- Expected
++++ Actual
+@@ @@
+ Array (
+     0 =&gt; 'POST'
+     1 =&gt; 'https://api.capsulecrm.com/ap...esults'
+-    2 =&gt; Array ()
+ )
+
+/Users/Nik/dev/packages/wrappers/capsule-crm-api-wrapper-php/tests/Unit/UnitTest.php:48
+</failure>
+      </testcase>
     </testsuite>
   </testsuite>
 </testsuites>
