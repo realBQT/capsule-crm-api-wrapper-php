@@ -105,10 +105,14 @@ class CapsuleCRM{
         // Method
         $response[0]    =   strtoupper($config['method']);
         // Endpoint
-        $response[1]    =   $config['endpoint'];    
+        $response[1]    =   $config['endpoint'];            
         foreach($resource as $key=>$value){
-            if(strpos($response[1],'{')!==false){                
-                $key        =   '{'.$key.'}';
+            if(strpos($response[1],'{')!==false){     
+                //    Converting resource to plural
+                if(!is_numeric($value)){
+                    $value      =   $this->config['resources'][$value]['plural'];
+                }
+                $key            =   '{'.$key.'}';
                 if(strpos($response[1],$key)!==false){
                     $response[1]    =   str_replace($key,$value,$response[1]);
                 }

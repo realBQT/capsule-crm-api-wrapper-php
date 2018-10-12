@@ -145,7 +145,21 @@ class UnitTest extends TestCase
                     'id'        =>  '7111052',
                     'value.currency'    =>  'NZD'
                 ]
-            ]
+            ],
+            [
+                'resource'  =>  'track:opportunity:7111052',
+                'filter'    =>  [],
+                'success'   =>  [
+                    'direction' =>  'START_DATE'
+                ]
+            ],
+            [
+                'resource'  =>  'entry:opportunity:7111052',
+                'filter'    =>  [],
+                'success'   =>  [
+                    'entryAt' =>  '__EXISTS__'
+                ]
+            ]            
         ];
     }
     
@@ -153,9 +167,18 @@ class UnitTest extends TestCase
         foreach($response as $record){
             $record     =   dot($record);
             foreach($success as $key=>$value){
-                if($record->get($key)!=$value){
-                    return false;
+                if(strpos($value,'__')!==false){
+                    if($value==='__EXISTS__'){
+                        if(!in_array($key, $record)){
+                            return false;
+                        }
+                    }
                 }
+                else{
+                    if($record->get($key)!=$value){
+                        return false;
+                    } 
+                }                
             }
         }
         return true;

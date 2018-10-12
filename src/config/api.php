@@ -86,7 +86,7 @@ return [
                 'endpoint'  =>  $root.'tasks/{0}?embed=party,opportunity,kase,owner,nextTask'
             ]
         ],
-        'entries'      =>  [
+        'entry'      =>  [
             'plural'    =>  'entries',
             'create'    =>  [],
             'list'      =>  [
@@ -98,6 +98,20 @@ return [
             'show'      =>  [
                 'method'    =>  'GET',
                 'endpoint'  =>  $root.'tasks/{0}?embed=party,opportunity,kase,owner,nextTask'
+            ]
+        ],
+        'track'      =>  [
+            'plural'    =>  'tracks',
+            'create'    =>  [],
+            'list'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'{0}/{1}/tracks'
+            ],
+            'update'    =>  [],
+            'delete'    =>  [],
+            'show'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'tracks/{0}?embed=party,opportunity,kase,owner,nextTask'
             ]
         ],
         'settings'  =>  [
