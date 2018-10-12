@@ -3,6 +3,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 use BlackQuadrant\CapsuleCRM;
+use Adbar\Dot;
 
 class UnitTest extends TestCase
 {
@@ -56,7 +57,6 @@ class UnitTest extends TestCase
         $op     =   $this->class->request_builder($resource,$action,$filter);
         $this->assertEquals($eop,$op);
     }
-
     public function request_builder(){
         $root     =   'https://api.capsulecrm.com/api/v2/';
         return [
@@ -84,15 +84,64 @@ class UnitTest extends TestCase
                     ]
                 ]
             ],
-            // [
-            //     'resource'  =>  'opportunity:7111052',
-            //     'filter'    =>  [],
-            //     'e_op'      =>  json_decode('{}',1)
-            // ]
+            [
+                'resource'  =>  [['opportunity','7111052'],'show'],
+                'filter'    =>  [],
+                'e_op'      =>  [
+                    'GET',
+                    'https://api.capsulecrm.com/api/v2/opportunities/7111052',
+                    [
+                        'query' =>  [
+                            'perPage'   =>  100,
+                            'embed'     =>  'tags,fields,party,milestone'
+                        ]
+                    ]
+                ]
+            ]
+        ];
+    }
+    /**
+     * @test
+     * @covers \BlackQuadrant\CapsuleCRM\CapsuleCRM::call
+     * @dataProvider call_data
+     */
+    public function call($resource,$filter,$success){
+        $response   =   $this->class->call($resource,$filter);
+        $this->assertTrue($this->check_success($response,$success));
+    }
+    public function call_data(){
+        return [
+            [
+                'resource'  =>  'opportunity',
+                'filter'    =>  [
+                    'filter'    =>  [
+                        'conditions'    =>  [
+                            [
+                                'field'     =>  'milestone',
+                                'operator'  =>  'is',
+                                'value'     =>  'Won'
+                            ]
+                        ]
+                    ]
+                ],
+                'success'   =>  [
+                    'milestone.name' => 'Won'
+                ]
+            ]
         ];
     }
     
-
+    private function check_success($response,$success){
+        foreach($response as $record){
+            $record     =   dot($record);
+            foreach($success as $key=>$value){
+                if($record->get($key)!=$value){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
 
 ?>

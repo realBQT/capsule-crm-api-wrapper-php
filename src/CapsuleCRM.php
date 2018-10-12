@@ -54,9 +54,37 @@ class CapsuleCRM{
         /**
          * 1.   Resource Splitter
          * 2.   Request Builder
+         * 3.   Call
          */
-        list($resource,$action)     =   $this->resource_splitter($resource);
-        
+        list($resource,$action)             =   $this->resource_splitter($resource);
+        list($method,$endpoint,$payload)    =   $this->request_builder($resource,$action,$filter);
+        $response   =   [];
+        if($action==='list'){
+            $page       =   1;
+            $continue   =   false;
+            do{
+                //  Set Page
+                $payload['query']['page']   =   $page;
+                $data       =   $this->call_api($method,$endpoint,$payload);
+                $continue   =   filter_var($data->getHeaders()['X-Pagination-Has-More'][0], FILTER_VALIDATE_BOOLEAN);
+                $records    =   json_decode($data->getBody()->getContents(),1);
+                //  Incrementing Page                
+                if($continue){
+                    $page++;
+                }
+                // Storing response
+                foreach($records[$this->config['resources'][$resource[0]]['plural']] as $key=>$record){
+                    $response[]     =   $record;               
+                }
+    
+            }while($continue);
+        }
+        else if($action==='show'){
+            $config     =   $this->config['resources'][$resource]['show'];   
+            $data       =   $this->call_api($method,$endpoint);
+            $response   =   json_decode($data->getBody()->getContents(),1);
+        }
+        return $response;
     }
     
     public function resource_splitter($payload){
@@ -113,52 +141,13 @@ class CapsuleCRM{
         return $response;
     }
     
-    /**
-     * Read resources
-     */
-    public function list($resource,$payload=[],$id=null){          
-        // Resource Splitter
-        $config     =   $this->config['resources'][$resource['resource']]['list'];
-        $continue   =   false;
-        $page       =   1;        
-        $response   =   [];
-        do{
-            // Identifying Entries
-            
-            $data       =   $this->call($config['method'],$endpoint.'?page='.$page, $payload);
-            $continue   =   filter_var($data->getHeaders()['X-Pagination-Has-More'][0], FILTER_VALIDATE_BOOLEAN);
-            $records    =   json_decode($data->getBody()->getContents(),1);
-            
-            // Filter by q
-            foreach($records[$this->config['resources'][$resource['resource']]['plural']] as $key=>$record){
-                if($this->filter($record, $resource['q'])){                    
-                    $response[]     =   $record;
-                }                
-            }
-            
-            if($continue){
-                $page++;
-            }
-
-        }while($continue);
-        
-        return $response;
-    }
-
-
     
     /**
      * API Caller
      */
-    private function call_api($resource,$action){
-        list($method,$endpoint,$settings)    =   $this->request_builder($resource,$config);
+    private function call_api($method,$endpoint,$payload){
         $client     =   new Client();     
-        // Payload and other settings
-        $settings   =   [];
-        
-
-        // var_dump($settings);die();
-
+        // Defaults
         $default_settings   =   [
             'headers' => [
                 'Authorization' =>  'Bearer '.$this->personal_access_token,
@@ -166,10 +155,9 @@ class CapsuleCRM{
                 'Content-Type'  =>  'application/json'
             ]
         ];
-        $all_settings = array_merge($default_settings, $settings);   
-        // fwrite(STDERR, print_r($api_endpoint."\n", TRUE));
-        // fwrite(STDERR, print_r(json_encode($all_settings)."\n", TRUE));
-        $response   =   $client->request(strtoupper($method),$api_endpoint, $all_settings);
+        // All Settings
+        $all_settings   =   array_merge($default_settings, $payload);
+        $response       =   $client->request($method,$endpoint,$all_settings);
         return $response;
     }
 
