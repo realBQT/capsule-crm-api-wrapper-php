@@ -106,7 +106,12 @@ class UnitTest extends TestCase
      * @dataProvider call_data
      */
     public function call($resource,$filter,$success){
-        $response   =   $this->class->call($resource,$filter);
+        if(empty($filter)){
+            $response   =   $this->class->call($resource);
+        }
+        else{
+            $response   =   $this->class->call($resource,$filter);
+        }
         $this->assertTrue($this->check_success($response,$success));
     }
     public function call_data(){
@@ -126,6 +131,19 @@ class UnitTest extends TestCase
                 ],
                 'success'   =>  [
                     'milestone.name' => 'Won'
+                ]
+            ],
+            [
+                'resource'  =>  'opportunity',
+                'filter'    =>  [],
+                'success'   =>  []
+            ],
+            [
+                'resource'  =>  'opportunity:7111052',
+                'filter'    =>  [],
+                'success'   =>  [
+                    'id'        =>  '7111052',
+                    'value.currency'    =>  'NZD'
                 ]
             ]
         ];

@@ -50,7 +50,7 @@ class CapsuleCRM{
     /**
      * Universal Caller
      */
-    public function call($resource,$filter=[]){
+    public function call($resource,$filter=['filter'=>['conditions'=>[]]]){
         /**
          * 1.   Resource Splitter
          * 2.   Request Builder
@@ -80,8 +80,8 @@ class CapsuleCRM{
             }while($continue);
         }
         else if($action==='show'){
-            $config     =   $this->config['resources'][$resource]['show'];   
-            $data       =   $this->call_api($method,$endpoint);
+            $config     =   $this->config['resources'][$resource[0]]['show'];   
+            $data       =   $this->call_api($method,$endpoint,$payload);
             $response   =   json_decode($data->getBody()->getContents(),1);
         }
         return $response;
