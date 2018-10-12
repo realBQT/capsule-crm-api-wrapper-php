@@ -52,7 +52,8 @@ class UnitTest extends TestCase
      * @dataProvider request_builder
      */
     public function requestBuilder($resource,$filter,$eop){
-        $op     =   $this->class->request_builder($resource,$action);
+        list($resource,$action) =   $resource;
+        $op     =   $this->class->request_builder($resource,$action,$filter);
         $this->assertEquals($eop,$op);
     }
 
@@ -60,7 +61,7 @@ class UnitTest extends TestCase
         $root     =   'https://api.capsulecrm.com/api/v2/';
         return [
             [
-                'resource'  =>  ['opportunity'],
+                'resource'  =>  [['opportunity'],'list'],
                 'filter'    =>  [
                     'filter'    =>  [
                         'conditions'    =>  [
@@ -73,7 +74,14 @@ class UnitTest extends TestCase
                     ]
                 ],
                 'eop'  =>  [
-                    
+                    'POST',
+                    'https://api.capsulecrm.com/api/v2/opportunities/filters/results',
+                    [
+                        'body'  =>  '{"filter":{"conditions":[{"field":"milestone","operator":"is","value":"Won"}]}}',
+                        'query' =>  [
+                            'perPage'   =>  100
+                        ]
+                    ]
                 ]
             ],
             // [

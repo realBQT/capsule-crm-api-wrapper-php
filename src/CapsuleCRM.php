@@ -70,25 +70,46 @@ class CapsuleCRM{
         return [$parts,$action];
     }
     
-    public function request_builder($resource,$filter){
-        // Resource Splitting
-        $resource           =   $this->resource_splitter($resource);
+    public function request_builder($resource,$action,$filter){
+        $root           =   array_shift($resource);
         // Config
-        $config             =   $this->config['resources'][$resource['resource']][$action];
+        $config         =   $this->config['resources'][$root][$action];
         // Method
-        $response[0]        =   strtoupper($config['method']);
+        $response[0]    =   strtoupper($config['method']);
         // Endpoint
-        $response[1]        =   $config['endpoint'];        
+        $response[1]    =   $config['endpoint'];    
         foreach($resource as $key=>$value){
             if(strpos($response[1],'{')!==false){                
-                $key    =   '{'.$key.'}';
+                $key        =   '{'.$key.'}';
                 if(strpos($response[1],$key)!==false){
                     $response[1]    =   str_replace($key,$value,$response[1]);
                 }
             }
         }
         // Payload
-        $response[2]        =   $filter;
+        $query_from_endpoint    =   [];
+        if (strpos($response[1], '?') !== false) {
+            list($response[1],$q) = explode('?',$response[1]);
+            // Parsing query
+            parse_str($q, $query_from_endpoint);
+        }
+        $response[2]    =   $this->payload_builder($response[0],$query_from_endpoint,$filter);
+        return $response;
+    }
+
+    public function payload_builder($method,$query_from_endpoint,$filter){
+        $response       =   [];
+        if($method==='GET'){
+            $response       =   [
+                'query'         =>  array_merge($this->config['resources']['settings'], $filter, $query_from_endpoint)
+            ];
+        }
+        else if($method==='POST'){
+            $response       =   [
+                'body'          =>  json_encode($filter),
+                'query'         =>  array_merge($this->config['resources']['settings'], $query_from_endpoint)
+            ];
+        }
         return $response;
     }
     
@@ -131,28 +152,10 @@ class CapsuleCRM{
      */
     private function call_api($resource,$action){
         list($method,$endpoint,$settings)    =   $this->request_builder($resource,$config);
-        $client     =   new Client();                
-        $method     =   strtoupper($method);
-        // Query params from api_endpoint
-        $query_from_endpoint    =   [];
-        if (strpos($api_endpoint, '?') !== false) {
-            list($api_endpoint,$q) = explode('?',$api_endpoint);
-            // Parsing query
-            parse_str($q, $query_from_endpoint);
-        }
+        $client     =   new Client();     
         // Payload and other settings
         $settings   =   [];
-        if( $method === 'GET' ){
-            $settings   =   [
-                'query'     =>  array_merge($this->config['resources']['settings'], $payload, $query_from_endpoint)
-            ];
-        }
-        else if( $method === 'POST' ){
-            $settings   =   [
-                'body'      =>  json_encode($payload),
-                'query'     =>  array_merge($this->config['resources']['settings'], $query_from_endpoint)
-            ];
-        }
+        
 
         // var_dump($settings);die();
 
