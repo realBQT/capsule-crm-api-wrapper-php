@@ -58,6 +58,20 @@ return [
                 'endpoint'  =>  $root.'opportunities/{0}?embed=tags,fields,party,milestone'
             ]
         ],
+        'opportunity-by-party'   =>  [
+            'plural'    =>  'opportunities',
+            'create'    =>  [],
+            'list'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'parties/{1}/opportunities'
+            ],
+            'update'    =>  [],
+            'delete'    =>  [],
+            'show'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'opportunities/{0}?embed=tags,fields,party,milestone'
+            ]
+        ],
         'kase'      =>  [
             'plural'    =>  'kases',
             'create'    =>  [],
@@ -71,6 +85,17 @@ return [
                 'method'    =>  'GET',
                 'endpoint'  =>  $root.'kases/{0}?embed=tags,fields,party'
             ]
+        ],
+        'complaint-by-party'   =>  [
+            'plural'    =>  'kases',
+            'create'    =>  [],
+            'list'      =>  [
+                'method'    =>  'GET',
+                'endpoint'  =>  $root.'kases/search'
+            ],
+            'update'    =>  [],
+            'delete'    =>  [],
+            'show'      =>  []
         ],
         'task'      =>  [
             'plural'    =>  'tasks',
