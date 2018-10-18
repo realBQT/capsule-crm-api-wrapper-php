@@ -48,6 +48,31 @@ class CapsuleCRM{
     }
 
     /**
+     * Universal Setter
+     */
+    public function set($resource,$payload=[]){
+        /**
+         * 1.   Resource Splitter
+         * 2.   Request Builder
+         * 3.   Call
+         */
+        list($resource,$action)             =   $this->set_resource_splitter($resource);
+        list($method,$endpoint,$payload)    =   $this->request_builder($resource,$action,$payload);
+        $data       =   $this->call_api($method,$endpoint,$payload);
+        return json_decode($data->getBody()->getContents(),1);
+    }
+    public function set_resource_splitter($resource){
+        $parts  =   explode(":",$resource);
+        if(count($parts)%2==0){
+            $action     =   'update';
+        }
+        else{
+            $action     =   'create';
+        }
+        return [$parts,$action];
+    }
+
+    /**
      * Universal Getter
      */
     public function get($resource,$filter=['filter'=>['conditions'=>[]]]){
@@ -56,7 +81,7 @@ class CapsuleCRM{
          * 2.   Request Builder
          * 3.   Call
          */
-        list($resource,$action)             =   $this->resource_splitter($resource);
+        list($resource,$action)             =   $this->get_resource_splitter($resource);
         list($method,$endpoint,$payload)    =   $this->request_builder($resource,$action,$filter);
         $response   =   [];
         if($action==='list'){
@@ -87,7 +112,7 @@ class CapsuleCRM{
         return $response;
     }
     
-    public function resource_splitter($payload){
+    public function get_resource_splitter($payload){
         $parts  =   explode(":",$payload);
         if(count($parts)%2==0){
             $action     =   'show';

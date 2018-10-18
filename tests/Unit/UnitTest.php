@@ -31,7 +31,7 @@ class UnitTest extends TestCase
         $op     =   $this->class->resource_splitter($payload);
         $this->assertSame($expected_op, $op);
     }
-    public function resource_splitter(){
+    public function get_resource_splitter(){
         return [
             [
                 'payload'   =>  'opportunity',
@@ -160,6 +160,37 @@ class UnitTest extends TestCase
                     'entryAt' =>  '__EXISTS__'
                 ]
             ]            
+        ];
+    }
+    /**
+     * @test
+     * @covers \BlackQuadrant\CapsuleCRM\CapsuleCRM::set
+     * @dataProvider set_data
+     */
+    public function set($resource,$payload,$success){
+        $response   =   $this->class->set($resource,$payload);
+
+    }
+    public function set_data(){
+        return [
+            [
+                'resource'  =>  'organisation',
+                'payload'   =>  [
+                    'party'     =>  [
+                        'type'      =>  'organisation',
+                        'name'      =>  'Black Quadrant',
+                        'about'     =>  'Test organisation created to test BPA',
+                        'tags'      =>  [
+                            [
+                                'name'      =>  'Test Customer'
+                            ]
+                        ]
+                    ]
+                ],
+                'success'   =>  [
+
+                ]
+            ]
         ];
     }
     
