@@ -48,9 +48,9 @@ class CapsuleCRM{
     }
 
     /**
-     * Universal Caller
+     * Universal Getter
      */
-    public function call($resource,$filter=['filter'=>['conditions'=>[]]]){
+    public function get($resource,$filter=['filter'=>['conditions'=>[]]]){
         /**
          * 1.   Resource Splitter
          * 2.   Request Builder

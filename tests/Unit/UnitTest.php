@@ -102,19 +102,19 @@ class UnitTest extends TestCase
     }
     /**
      * @test
-     * @covers \BlackQuadrant\CapsuleCRM\CapsuleCRM::call
-     * @dataProvider call_data
+     * @covers \BlackQuadrant\CapsuleCRM\CapsuleCRM::get
+     * @dataProvider get_data
      */
-    public function call($resource,$filter,$success){
+    public function get($resource,$filter,$success){
         if(empty($filter)){
-            $response   =   $this->class->call($resource);
+            $response   =   $this->class->get($resource);
         }
         else{
-            $response   =   $this->class->call($resource,$filter);
+            $response   =   $this->class->get($resource,$filter);
         }
         $this->assertTrue($this->check_success($response,$success));
     }
-    public function call_data(){
+    public function get_data(){
         return [
             [
                 'resource'  =>  'opportunity',

@@ -4,7 +4,10 @@ return [
     'resources' =>  [
         'people'    =>  [
             'plural'    =>  'parties',
-            'create'    =>  [],
+            'create'    =>  [
+                'method'    =>  'POST',
+                'endpoint'  =>  $root.'parties'
+            ],
             'list'      =>  [
                 'method'    =>  'POST',
                 'endpoint'  =>  $root.'parties/filters/results'
@@ -18,7 +21,10 @@ return [
         ],
         'organisation'    =>  [
             'plural'    =>  'parties',
-            'create'    =>  [],
+            'create'    =>  [
+                'method'    =>  'POST',
+                'endpoint'  =>  $root.'parties'
+            ],
             'list'      =>  [
                 'method'    =>  'POST',
                 'endpoint'  =>  $root.'parties/filters/results'
